@@ -1,6 +1,5 @@
 ﻿var app = angular.module('app', ['ngResource',
     'oc.lazyLoad',
-    'app.config',
     'ui.router',
     'ngSanitize',
     'angular-bind-html-compile',
