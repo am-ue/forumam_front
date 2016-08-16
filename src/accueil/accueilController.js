@@ -21,7 +21,7 @@
                 title: 'Préparez votre venue',
                 type: 2,
                 description: 'L’application mobile vous ouvre l\'accès à une myriade de services...',
-                image: 'assets/img/HB.jpg'
+                image: 'assets/img/news_img01.jpg'
             },
             {
                 title: 'Retour sur la 35e édition',
