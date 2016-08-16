@@ -1,0 +1,41 @@
+{
+  "name": "arts_metiers",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.4.10",
+    "angular-resource": "~1.4.10",
+    "angular-cookies": "~1.4.10",
+    "angular-route": "~1.4.10",
+    "angular-sanitize": "~1.4.10",
+    "angular-mocks": "~1.4.10",
+    "angular-animate": "~1.5.3",
+    "jquery": "2.2.2",
+    "underscore": "1.8.3",
+    "angular-ui-router": "0.2.18",
+    "angular-strap": "^2.3.8",
+    "angular-motion": "~0.4.3",
+    "angular-aria": "^1.5.7",
+    "oclazyload": "^1.0.9",
+    "angular-bind-html-compile": "^1.2.1",
+    "chosen": "~1.6.1",
+    "angular-chosen-localytics": "^1.4.3"
+  },
+  "analytics": false,
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "angular": "1.4.10"
+  }
+}

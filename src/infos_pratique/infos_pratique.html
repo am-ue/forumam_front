@@ -1,0 +1,141 @@
+<ul class="stick_nav">
+    <li>
+        <a data-href="#forum_plan_area" class="active" ng-click="stickNavLinks($event)">Plan</a>
+    </li>
+    <li>
+        <a data-href="#info_pratic_area" ng-click="stickNavLinks($event)">Pratique</a>
+    </li>
+</ul>
+<div class="global_wrapper info_pratic_page">
+    <section id="forum_plan_area" class="clearfix">
+        <div class="left_parte">
+            <div class="title_area">
+                <h3 class="block_title with_bg darkPurple_clr withRelated_icn forum_plan_title">
+                            <span>
+                                Plan du Forum
+                            </span>
+                </h3>
+                <div class="block_content mb_15">
+                    <p>
+                        Retrouvez le plan des entreprises exposantes par ordre alphabétique ou par catégorie.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_parte plan_switcher_area">
+            <button class="btn lightPurple_btn small_btn animated_btn active" data-target="#alpha_vision" ng-click="planSwitcher($event)"><span>vue Alphabétique</span></button>
+            <button class="btn lightPurple_btn small_btn animated_btn" data-target="#cat_vision" ng-click="planSwitcher($event)"><span>vue Par catégorie</span></button>
+        </div>
+    </section>
+    <div class="plan_switcher_content">
+        <div id="alpha_vision">
+            <img src="assets/img/alpha_vision_img.jpg" alt="">
+            <p class="align_center">
+                <a href="#" class="btn orange_btn animated_btn"><span>Télécharger en pdf</span></a>
+            </p>
+        </div>
+        <div id="cat_vision">
+            <img src="assets/img/cat_vision_img.jpg" alt="">
+            <p class="align_center">
+                <a href="#" class="btn orange_btn animated_btn"><span>Télécharger en pdf</span></a>
+            </p>
+        </div>
+    </div>
+    <section id="info_pratic_area" class="sections_area clearfix">
+        <div class="left_parte">
+            <div class="title_area">
+                <h3 class="block_title with_bg orange_clr withRelated_icn info_pratic_title">
+                            <span class="small_title_parte">
+                               Informations 
+                            </span>
+                            <span>
+                                pratiques
+                            </span>
+                </h3>
+                <div class="block_content mb_60">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+                    </p>
+                </div>
+                <div class="application_content clearfix">
+                    <div class="tel_visu">
+                        <img src="assets/img/tel_img.jpg" alt="">
+                    </div>
+                    <div class="app_txt">
+                        <h5 class="darkPurple_clr">L’application</h5>
+                        <p class="mb_40">
+                            Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises présentes, le planning des conférences, une CVthèque, ect...
+                        </p>
+                        <a href="" class="orange_clr">
+                            Version iOS
+                        </a> <br>
+                        <a href="" class="orange_clr">
+                            Version Android
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right_parte grey_bg">
+            <div id="map_plan" class="mb_40"></div>
+            <div class="map_output">
+                <p class="group_info">
+                    <label for="" class="darkPurple_clr">
+                        Lieu
+                    </label>
+                            <span>
+                                Parc Floral de Paris <br>
+                                Route de la Pyramide, 75012 Paris
+                            </span>
+                </p>
+                <p class="group_info">
+                    <label for="" class="darkPurple_clr">
+                        Date
+                    </label>
+                            <span>
+                                30 Mars 2016 de 9h à 18h
+                            </span>
+                </p>
+                <p class="group_info">
+                    <label for="" class="darkPurple_clr">
+                        Accès
+                    </label>
+                            <span>
+                                Métro : Chateau de Vincennes <br>
+                                Bus : 124
+                            </span>
+                </p>
+                <p class="group_info">
+                    <label for="" class="darkPurple_clr">
+                        Coût
+                    </label>
+                            <span>
+                                Gratuit
+                            </span>
+                </p>
+                <p class="align_center">
+                    <a href="" class="btn purple_btn animated_btn"><span>Télécharger le plan du forum</span></a>
+                </p>
+            </div>
+            <div class="application_content mobile_application_block clearfix">
+                <div class="tel_visu">
+                    <img src="assets/img/tel_img.jpg" alt="">
+                </div>
+                <div class="app_txt">
+                    <h5 class="darkPurple_clr">L’application</h5>
+                    <p class="mb_40">
+                        Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises présentes, le planning des conférences, une CVthèque, ect...
+                    </p>
+                </div>
+                <p class="app_links align_center">
+                    <a href="" class="orange_clr">
+                        Version iOS
+                    </a>
+                    <a href="" class="orange_clr">
+                        Version Android
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+</div>

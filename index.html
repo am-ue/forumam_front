@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="fr" ng-app="app" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700,400,500,600' rel='stylesheet' type='text/css'>
+
+    <!--Chosen-->
+    <link rel="stylesheet" href="assets/css/chosen.min.css">
+    <link rel="stylesheet" href="bower_components/angular-chosen-localytics/chosen-spinner.css">
+
+    <link rel="stylesheet" href="assets/css/normalize.min.css">
+    <link rel="stylesheet" href="assets/css/hamburgers.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+<body class="page_cover" ng-controller="BodyController">
+<div ng:include="'src/menu/header.html'"></div>
+<div ui-view>
+
+</div>
+<div ng:include="'src/menu/footer.html'"></div>
+
+<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5OTSb2JVnn3KkbjuzMLDqsoPzsNjmIc8" type="text/javascript"></script>
+<script src="js/plugins.js"></script>
+<!-- Here we load AngularJS and the AngularJS resource component -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js" data-semver="1.4.5"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+
+<script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+<script src="bower_components/angular-bind-html-compile/angular-bind-html-compile.js"></script>
+
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+<script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+
+<!-- Chosen angularJS -->
+<script src="bower_components/chosen/chosen.jquery.js"></script>
+<script src="bower_components/angular-chosen-localytics/dist/angular-chosen.js"></script>
+
+<!-- include controllers -->
+<!--<script src="src/accueil/accueilController.js"></script>-->
+
+
+<script src="src/accueil/accueil.js"></script>
+
+<script src="src/authentification/authentification.js"></script>
+
+<script src="src/bien_se_preparer/biensePreparer.js"></script>
+
+<script src="src/exposants/exposants.js"></script>
+
+<script src="src/infos_pratique/infosPratique.js"></script>
+
+<script src="src/commons/commons.js"></script>
+<!-- Here we include our own angular scripts -->
+<script src="src/app-config.js"></script>
+<script src="src/app.js"></script>
+
+<!-- include directives -->
+<script src="src/directives/articleDirective.js"></script>
+<script src="src/directives/exposantDirective.js"></script>
+<script src="src/directives/scrollWindowDirective.js"></script>
+
+<!-- include services -->
+<!--<script src="src/services/RestService.js"></script>-->
+</body>
+</html>

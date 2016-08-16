@@ -1,0 +1,40 @@
+<div class="global_wrapper exposants_page grey_bg">
+    <exposant  exposant-data="currentExposant" indexExposant-data="currentIndex"></exposant>
+    <div class="exposant_wrapper">
+        <h2 class="darkPurple_clr">
+            Les exposants
+        </h2>
+        <div class="exposant_search_area mb_40 clearfix">
+            <div class="search_controls clearfix">
+                <input type="text" id="search_field" class="simple_field darkPurple_clr bordered float_left"
+                       placeholder="Rechercher une entreprise exposante">
+                <select
+                        chosen
+                        disable-search-threshold="10"
+                        placeholder-text-single="'Catégorie d’entreprise'"
+                        no-results-text="'Aucun resultats'"
+                        name="" id="search_choices" class="styled_dropdown float_right">
+                    <option value=""></option>
+                    <option value="cate01">Cate01</option>
+                    <option value="cate02">Cate02</option>
+                    <option value="cate03">Cate03</option>
+                </select>
+            </div>
+            <button class="btn purple_btn inverted_btn animated_btn search_btn"><span>rechercher</span></button>
+        </div>
+        <div>
+            <ul class="exposants_liste clearfix">
+                <li ng-repeat="(key, exposant) in exposants track by $index">
+                    <a href="" ng-click="showExposant($index,$event)">
+                                <span class="logo_space">
+                                    <img ng-src="{{ exposant.image ? exposant.image : 'assets/img/novonordisk_logo.png'}}"
+                                         alt="">
+                                </span>
+                        <span class="exposant_title darkPurple_clr">{{exposant.title}}</span>
+                        <span class="exposant_disc">{{exposant.description}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

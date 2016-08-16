@@ -1,0 +1,90 @@
+<header class="header">
+    <div class="main_head clearfix">
+        <div class="logo_area float_left">
+            <h1>
+                <img src="assets/img/Logo_A_M.png" class="default_logo" alt="Art & métiers" width="103">
+                <img src="assets/img/Logo_A_M-white.png" class="white_logo" alt="Art & métiers" width="100">
+            </h1>
+        </div>
+        <ul class="main_nav float_right">
+            <li>
+                <a href="#/accueil" ng-class="{active : targetUrl == 'accueil'}">
+                    Accueil
+                </a>
+            </li>
+            <li>
+                <a href="#/biensePreparer" ng-class="{active : targetUrl == 'biensePreparer'}">
+                    Bien se préparer
+                </a>
+            </li>
+            <li>
+                <a href="#/exposants" ng-class="{active : targetUrl == 'exposants'}">
+                    Les exposants
+                </a>
+            </li>
+            <li>
+                <a href="#/infosPratique" ng-class="{active : targetUrl == 'infosPratique'}">
+                    informations pratiques
+                </a>
+            </li>
+        </ul>
+        <a href="#/authentification" class="entreprise_space_link">
+            <img src="assets/img/lock_icn.png" alt="">
+            <span>espace entreprise</span>
+        </a>
+        <button class="menu_btn hamburger hamburger--elastic fixed_menubtn" type="button" ng-click="menuBtn($event)">
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+        </button>
+        <div class="mobile_menu_container">
+            <ul class="mobile_nav_menu">
+                <li>
+                    <a href="" class="active">
+                        Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        Bien se préparer
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        Les exposants
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        informations pratiques
+                    </a>
+                </li>
+            </ul>
+            <div class="mobile_social_links">
+                <ul class="clearfix">
+                    <li>
+                        <a href="" class="fb_link">&nbsp;</a>
+                    </li>
+                    <li>
+                        <a href="" class="twitter_link">&nbsp;</a>
+                    </li>
+                    <li>
+                        <a href="" class="linkdin_link">&nbsp;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<ul class="social_links">
+    <li>
+        <a href="" class="fb_link">&nbsp;</a>
+    </li>
+    <li>
+        <a href="" class="twitter_link">&nbsp;</a>
+    </li>
+    <li>
+        <a href="" class="linkdin_link">&nbsp;</a>
+    </li>
+</ul>
