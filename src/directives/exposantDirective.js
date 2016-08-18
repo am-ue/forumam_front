@@ -6,15 +6,13 @@ app.directive('exposant', function ($compile, $rootScope, $templateRequest) {
         restrict: "EA",
         templateUrl: 'src/directives/views/detailsExposant.html',
         scope: {
-            exposant: '=exposantData',
-            indexExposant: '=indexexposantData'
+            exposant: '=exposantData'
         },
         link: function (scope, element, attrs) {
         },
         controller: function ($rootScope, $scope, $element) {
 
-            $scope.hideExposant = function (index) {
-                console.log('hideExposant index ', index);
+            $scope.hideExposant = function () {
                 var _body = $('body');
                 var BodyScrollTop = _body.scrollTop();
                 var exposantsItems = $('.exposants_liste li a');

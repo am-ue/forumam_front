@@ -1,0 +1,48 @@
+[
+  {
+    "id": 134,
+    "type": "video",
+    "title" : "J-3 avant le salon !",
+    "description" : "Découvrez l’avant première du Forum Arts & Métiers... ",
+    "youtube_id" : "pFS4zYWxzNA",
+    "company" : {
+      "id": 1,
+      "name": "Novo Nordisk",
+      "summary" : "Description en une phrase",
+      "description": "Description",
+      "stand": "Emplacement"
+    },
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  },
+  {
+    "id": 212,
+    "type": "article",
+    "title" : "Retour sur la 35e édition ",
+    "description" : " Renouveau pour le Forum : communication, identité visuelle... le « must have » ! ",
+    "img_url" : "http://mon/image.jpg",
+    "company" : null,
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  },
+  {
+    "id": 1,
+    "type": "article",
+    "title" : "Retour sur la 35e édition ",
+    "description" : " Renouveau pour le Forum : communication, identité visuelle... le « must have » ! ",
+    "img_url" : "http://mon/image.jpg",
+    "company" : null,
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  },
+  {
+    "id": 2,
+    "type": "video",
+    "title" : "Retour sur la 35e édition ",
+    "description" : " Renouveau pour le Forum : communication, identité visuelle... le « must have » ! ",
+    "img_url" : "http://mon/image.jpg",
+    "company" : null,
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  }
+]

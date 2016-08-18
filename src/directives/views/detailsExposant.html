@@ -1,6 +1,6 @@
 <div class="exposant_detail">
     <div>
-        <button class="exposant_back_btn" ng-click="hideExposant(indexExposant)">
+        <button class="exposant_back_btn" ng-click="hideExposant()">
             <!-- <img src="img/exposant_back_icn.png" width="16" alt=""> -->
             <img src="assets/img/grey_back_icn.png" width="16" alt="">
         </button>
@@ -9,14 +9,14 @@
         <div class="exposant_content">
             <div class="exposant_globalInfos clearfix">
                 <div class="big_exposant_logo">
-                    <img src="assets/img/big_novonordisk_logo.png" alt="">
+                    <img ng-src="{{ exposant.logo_url ? exposant.logo_url : 'assets/img/default_exposant_logo.png'}}" alt="">
                 </div>
                 <div class="exposant_infos">
                     <span class="article_infos orange_clr">Industrie - grande distribution - agro alimentaire</span>
                     <h4 class="news_title darkPurple_clr mb_10">
-                        {{exposant.title}}
+                        {{exposant.name}}
                     </h4>
-                    <a href="" class="exposant_link">www.novonordisk.com</a>
+                    <a href="" class="exposant_link">{{exposant.website}}</a>
                 </div>
             </div>
             <div class="exposant_content_container">

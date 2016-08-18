@@ -18,7 +18,8 @@
     "oclazyload": "^1.0.9",
     "angular-bind-html-compile": "^1.2.1",
     "chosen": "~1.6.1",
-    "angular-chosen-localytics": "^1.4.3"
+    "angular-chosen-localytics": "^1.4.3",
+    "angular-touch": "^1.5.8"
   },
   "analytics": false,
   "description": "",

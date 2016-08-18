@@ -17,7 +17,6 @@
             _this.addClass('active');
 
             $('.plan_switcher_content > div').hide();
-            //$('.plan_switcher_content > div').hide()
             $(_this.attr('data-target')).show()
         };
 

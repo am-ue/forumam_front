@@ -1,18 +1,18 @@
 <ul class="stick_nav">
     <li>
-        <a data-href="#presentation_area" class="active" ng-click="stickNavLinks($event)" >Présentation</a>
+        <a data-href="#presentation_area" id="target_presentation_area" class="active" ng-click="stickNavLinks($event)">Présentation</a>
     </li>
     <li>
-        <a data-href="#news_area" ng-click="stickNavLinks($event)">Actualités</a>
+        <a data-href="#news_area" id="target_news_area" ng-click="stickNavLinks($event)">Actualités</a>
     </li>
     <li>
-        <a data-href="#spaces_area" ng-click="stickNavLinks($event)">Publics</a>
+        <a data-href="#spaces_area" id="target_spaces_area" ng-click="stickNavLinks($event)">Publics</a>
     </li>
     <li>
-        <a data-href="#info_pratic_area" ng-click="stickNavLinks($event)">Pratique</a>
+        <a data-href="#info_pratic_area" id="target_info_pratic_area" ng-click="stickNavLinks($event)">Pratique</a>
     </li>
     <li>
-        <a data-href="#contact_area" ng-click="stickNavLinks($event)">Informations</a>
+        <a data-href="#contact_area" id="target_contact_area" ng-click="stickNavLinks($event)">Informations</a>
     </li>
 </ul>
 
@@ -25,7 +25,8 @@
             <div class="presentation_txt clearfix">
                 <div class="txt_infos">
                     <h2>Forum Arts & Métiers</h2>
-                    <p>Le plus important espace de rencontre entreprises-étudiants ingénieurs organisé en France par les élèves ingénieurs Arts et Métiers</p>
+                    <p>Le plus important espace de rencontre entreprises-étudiants ingénieurs organisé en France par les
+                        élèves ingénieurs Arts et Métiers</p>
                 </div>
                 <div class="event_infos clearfix">
                     <div class="event_date">
@@ -42,7 +43,8 @@
             </div>
         </div>
         <p class="trailer_area align_center">
-            <button class="btn big_btn purple_btn animated_btn inverted_btn shadow_btn"><span>Voir le trailer du forum</span></button>
+            <button class="btn big_btn purple_btn animated_btn inverted_btn shadow_btn">
+                <span>Voir le trailer du forum</span></button>
         </p>
         <a data-href="#news_area" class="scroll_btm" ng-click="scroll_btm($event)">&nbsp;</a>
     </section>
@@ -50,7 +52,7 @@
         <div class="left_parte">
             <div class="title_area">
                 <h3 class="block_title with_bg orange_clr withRelated_icn news_big_title">
-                    <span>Actualités</span>
+                    <span>Actualités {{scrollPos}}</span>
                 </h3>
                 <div class="block_content">
                     <p>
@@ -60,24 +62,27 @@
             </div>
         </div>
         <div class="right_parte grey_bg">
-            <article  actualite-data="currentActualite" indexArticle-data="currentIndex"></article>
+            <article actualite-data="currentActualite"></article>
             <ul class="news_list">
-                <li class="{{types_actualites[actualite.type].class}}"  ng-repeat="(key, actualite) in actualites track by $index" ng-click="showArticle($index)">
+                <li class="{{types_actualites[actualite.type].class}}"
+                    ng-repeat="(key, actualite) in actualites track by $index" ng-click="showArticle($index)">
                     <a href="">
-                                <span class="news_visu">
-                                    <img ng-src="{{actualite.image ? actualite.image : 'assets/img/news_img01.jpg'}}" alt="">
-                                </span><!--
-                                --><span class="news_resume">
-                                    <h4 class="news_title darkPurple_clr">
-                                        <img ng-src="{{ types_actualites[actualite.type].icon ? types_actualites[actualite.type].icon : 'assets/img/article_icn.png'}}" alt="">
-                                        <span>
-                                            {{actualite.title}}
-                                        </span>
-                                    </h4>
-                                    <p>
-                                        {{actualite.description}}
-                                    </p>
+                        <span class="news_visu">
+                            <img ng-src="{{actualite.image ? actualite.image : 'assets/img/news_img01.jpg'}}"
+                                 alt="">
+                        </span><!--
+                        --><span class="news_resume">
+                            <h4 class="news_title darkPurple_clr">
+                                <img ng-src="{{ types_actualites[actualite.type].icon ? types_actualites[actualite.type].icon : 'assets/img/article_icn.png'}}"
+                                     alt="">
+                                <span>
+                                    {{actualite.title}}
                                 </span>
+                            </h4>
+                            <p>
+                                {{actualite.description}}
+                            </p>
+                        </span>
                     </a>
                 </li>
             </ul>
@@ -97,11 +102,12 @@
                 </h3>
                 <div class="block_content">
                     <p class="mb_40">
-                        Lorem ipsum dolor amet, consectetur adipisicing elit, sed do eiusmod. Suspendisse volutpat euismod orci.
+                        Lorem ipsum dolor amet, consectetur adipisicing elit, sed do eiusmod. Suspendisse volutpat
+                        euismod orci.
                     </p>
                     <p>
-                        <a href="" class="btn purple_btn animated_btn"><span>exposants</span></a>
-                        <a href="" class="btn purple_btn animated_btn"><span>Bien se préparer</span></a>
+                        <a href="#/exposants" class="btn purple_btn animated_btn"><span>exposants</span></a>
+                        <a href="#/biensePreparer" class="btn purple_btn animated_btn"><span>Bien se préparer</span></a>
                     </p>
                 </div>
             </div>
@@ -119,11 +125,12 @@
                 </h3>
                 <div class="block_content">
                     <p class="mb_40">
-                        Lorem ipsum dolor amet, consectetur adipisicing elit, sed do eiusmod. Suspendisse volutpat euismod orci.
+                        Lorem ipsum dolor amet, consectetur adipisicing elit, sed do eiusmod. Suspendisse volutpat
+                        euismod orci.
                     </p>
                     <p>
-                        <a href="" class="btn orange_btn animated_btn"><span>exposants</span></a>
-                        <a href="" class="btn orange_btn animated_btn"><span>Bien se préparer</span></a>
+                        <a href="#/authentification" class="btn orange_btn animated_btn"><span>Inscription</span></a>
+                        <a href="#/authentification" class="btn orange_btn animated_btn"><span>Connexion</span></a>
                     </p>
                 </div>
             </div>
@@ -152,7 +159,8 @@
                     <div class="app_txt">
                         <h5 class="darkPurple_clr">L’application</h5>
                         <p class="mb_40">
-                            Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises présentes, le planning des conférences, une CVthèque, ect...
+                            Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des
+                            entreprises présentes, le planning des conférences, une CVthèque, ect...
                         </p>
                         <a href="" class="orange_clr">
                             Version iOS
@@ -213,7 +221,8 @@
                 <div class="app_txt">
                     <h5 class="darkPurple_clr">L’application</h5>
                     <p class="mb_40">
-                        Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises présentes, le planning des conférences, une CVthèque, ect...
+                        Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises
+                        présentes, le planning des conférences, une CVthèque, ect...
                     </p>
                 </div>
                 <p class="app_links align_center">
@@ -292,7 +301,8 @@
                         <textarea name="" id="" class="simple_field darkPurple_clr full_size"></textarea>
                     </p>
                     <div class="align_right">
-                        <button type="submit" class="btn purple_btn inverted_btn small_btn animated_btn"><span>Envoyer</span></button>
+                        <button type="submit" class="btn purple_btn inverted_btn small_btn animated_btn">
+                            <span>Envoyer</span></button>
                     </div>
                 </form>
             </div>

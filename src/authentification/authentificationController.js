@@ -20,6 +20,8 @@
             espace_inscription.hide();
             var espace_connexion =   angular.element(document.querySelector("#espace_connexion"));
             espace_connexion.show();
+            //$location.path("login").replace();
+            $location.path('login', false);
             return false;
         };
 
@@ -33,6 +35,8 @@
             espace_inscription.show();
             var espace_connexion =   angular.element(document.querySelector("#espace_connexion"));
             espace_connexion.hide();
+            //$location.path("signup").replace();
+            $location.path('signup', false);
             return false;
         }
     }

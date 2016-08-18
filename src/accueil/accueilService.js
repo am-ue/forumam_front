@@ -2,12 +2,16 @@
     'use strict';
 
     angular.module('accueil')
-        .service('accueilService', ['$http', accueilService]);
+        .service('accueilService', ['$q', 'restService', accueilService]);
 
 
-    function accueilService($http) {
+    function accueilService($q, restService) {
 
-        return {};
+        return {
+            loadAll: function () {
+                return restService.call('GET', 'actualites', {});
+            }
+        };
     }
 
 })();

@@ -1,17 +1,29 @@
-﻿var app = angular.module('app', ['ngResource',
+﻿var env = 'prod';
+var base_url;
+if (env == 'local') {
+    base_url = "http://localhost/forumam_front/data/"
+} else {
+    base_url = window.location.protocol + "://" + window.location.host + ":" + window.location.port + "/";
+}
+
+var app = angular.module('app', ['ngResource',
     'oc.lazyLoad',
     'app.config',
     'ui.router',
     'ngSanitize',
     'angular-bind-html-compile',
     'localytics.directives',
+    'ngTouch',
+    'ui.router',
     'commons',
     'accueil',
     'authentification',
     'biensePreparer',
     'exposants',
     'infosPratique'
-]);
+]).constant('urls', {
+    BASE: base_url
+});
 
 app.config(
     function ($stateProvider, $httpProvider, $urlRouterProvider) {

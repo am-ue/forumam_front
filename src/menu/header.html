@@ -8,31 +8,31 @@
         </div>
         <ul class="main_nav float_right">
             <li>
-                <a href="#/accueil" ng-class="{active : targetUrl == 'accueil'}">
+                <a href="" ng-click="targetPage('accueil')" ng-class="{active : targetUrl == 'accueil'}">
                     Accueil
                 </a>
             </li>
             <li>
-                <a href="#/biensePreparer" ng-class="{active : targetUrl == 'biensePreparer'}">
+                <a href="" ng-click="targetPage('biensePreparer')" ng-class="{active : targetUrl == 'biensePreparer'}">
                     Bien se préparer
                 </a>
             </li>
             <li>
-                <a href="#/exposants" ng-class="{active : targetUrl == 'exposants'}">
+                <a href="" ng-click="targetPage('exposants')" ng-class="{active : targetUrl == 'exposants'}">
                     Les exposants
                 </a>
             </li>
             <li>
-                <a href="#/infosPratique" ng-class="{active : targetUrl == 'infosPratique'}">
+                <a href="" ng-click="targetPage('infosPratique')" ng-class="{active : targetUrl == 'infosPratique'}">
                     informations pratiques
                 </a>
             </li>
         </ul>
-        <a href="#/authentification" class="entreprise_space_link">
+        <a href="" ng-click="targetPage('authentification')"  class="entreprise_space_link">
             <img src="assets/img/lock_icn.png" alt="">
             <span>espace entreprise</span>
         </a>
-        <button class="menu_btn hamburger hamburger--elastic fixed_menubtn" type="button" ng-click="menuBtn($event)">
+        <button class="menu_btn hamburger hamburger--elastic fixed_menubtn" type="button" ng-click="menuBtn()">
                   <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
                   </span>
@@ -40,22 +40,22 @@
         <div class="mobile_menu_container">
             <ul class="mobile_nav_menu">
                 <li>
-                    <a href="" class="active">
+                    <a href="" ng-click="targetPageMobile('accueil')"  ng-class="{active : targetUrl == 'accueil'}">
                         Accueil
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" ng-click="targetPageMobile('biensePreparer')" ng-class="{active : targetUrl == 'biensePreparer'}">
                         Bien se préparer
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" ng-click="targetPageMobile('exposants')" ng-class="{active : targetUrl == 'exposants'}">
                         Les exposants
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" ng-click="targetPageMobile('infosPratique')" ng-class="{active : targetUrl == 'infosPratique'}">
                         informations pratiques
                     </a>
                 </li>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": null,
+    "name": "All",
+    "color": "#e82288",
+    "map_url": "http://url/image.png"
+  },
+  {
+    "id": 1,
+    "name": "Formation - Start Up",
+    "color": "#e82285",
+    "map_url": "http://url/image.png"
+  },
+  {
+    "id": 2,
+    "name": "Industrie",
+    "color": "#e82288",
+    "map_url": "http://url/image.png"
+  },
+  {
+    "id": 3,
+    "name": "Autre catégorie",
+    "color": "#e82285",
+    "map_url": "http://url/image.png"
+  }
+]

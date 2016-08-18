@@ -2,12 +2,19 @@
     'use strict';
 
     angular.module('exposants')
-        .service('exposantsService', ['$http', exposantsService]);
+        .service('exposantsService', ['$q', 'restService', exposantsService]);
 
 
-    function exposantsService($http) {
+    function exposantsService($q, restService) {
 
-        return {};
+        return {
+            loadAllCompanies: function () {
+                return restService.call('GET', 'companies', {});
+            },
+            loadAllCategories: function () {
+                return restService.call('GET', 'categories', {});
+            }
+        };
     }
 
 })();

@@ -1,0 +1,175 @@
+[
+  {
+    "id": 134,
+    "name": "Novo Nordisk",
+    "website": "www.novonordisk.com",
+    "logo_url": "http://url/image.png",
+    "summary": "Description en une phrase",
+    "description": "Description",
+    "figures": "Chiffres clefs",
+    "staffing": "Mode de recrutement",
+    "profiles": "Postes et responsabilités",
+    "more": "Informations complémentaires",
+    "stand": "Emplacement",
+    "category": {
+      "id": 1,
+      "name": "Formation - Start Up",
+      "color": "#e82285",
+      "map_url": "http://url/image.png"
+    },
+    "news": [
+      {
+        "id": 1,
+        "type": "video",
+        "title": "J-3 avant le salon !",
+        "description": "Découvrez l’avant première du Forum Arts & Métiers... ",
+        "youtube_id": "pFS4zYWxzNA",
+        "created_at": "2016-08-16 16:49:38",
+        "updated_at": "2016-08-16 16:49:38"
+      },
+      {
+        "id": 2,
+        "type": "article",
+        "title": "Retour sur la 35e édition ",
+        "description": " Renouveau pour le Forum : communication, identité visuelle... le « must have » ! ",
+        "img_url": "http://mon/image.jpg",
+        "created_at": "2016-08-16 16:49:38",
+        "updated_at": "2016-08-16 16:49:38"
+      }
+    ],
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  },
+  {
+    "id": 212,
+    "name": "Novo Nordisk",
+    "website": "www.novonordisk.com",
+    "logo_url": "http://url/image.png",
+    "summary": "Description en une phrase",
+    "description": "Description",
+    "figures": "Chiffres clefs",
+    "staffing": "Mode de recrutement",
+    "profiles": "Postes et responsabilités",
+    "more": "Informations complémentaires",
+    "stand": "Emplacement",
+    "category": {
+      "id": 2,
+      "name": "Industrie",
+      "color": "#e82288",
+      "map_url": "http://url/image.png"
+    },
+    "news": null,
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  },
+  {
+    "id": 1,
+    "name": "Novo Nordisk",
+    "website": "www.novonordisk.com",
+    "logo_url": "assets/img/novonordisk_logo.png",
+    "summary": "Description en une phrase",
+    "description": "Description",
+    "figures": "Chiffres clefs",
+    "staffing": "Mode de recrutement",
+    "profiles": "Postes et responsabilités",
+    "more": "Informations complémentaires",
+    "stand": "Emplacement",
+    "category": {
+      "id": 2,
+      "name": "Industrie",
+      "color": "#e82288",
+      "map_url": "http://url/image.png"
+    },
+    "news": null,
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  },
+  {
+    "id": 2,
+    "name": "LEROY MERLIN",
+    "website": "www.leroymerlin.com",
+    "logo_url": "assets/img/leroymerlin_logo(02).png",
+    "summary": "Description en une phrase",
+    "description": "Description de l'exposant leroy merlin",
+    "figures": "Chiffres clefs",
+    "staffing": "Mode de recrutement",
+    "profiles": "Postes et responsabilités",
+    "more": "Informations complémentaires",
+    "stand": "Emplacement",
+    "category": {
+      "id": 2,
+      "name": "Industrie",
+      "color": "#e82288",
+      "map_url": "http://url/image.png"
+    },
+    "news": null,
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  },
+  {
+    "id": 3,
+    "name": "LORIAL",
+    "website": "www.lorial.com",
+    "logo_url": "assets/img/lorial_logo.png",
+    "summary": "Description en une phrase",
+    "description": "Description de l'exposant lorial",
+    "figures": "Chiffres clefs",
+    "staffing": "Mode de recrutement",
+    "profiles": "Postes et responsabilités",
+    "more": "Informations complémentaires",
+    "stand": "Emplacement",
+    "category": {
+      "id": 2,
+      "name": "Industrie",
+      "color": "#e82288",
+      "map_url": "http://url/image.png"
+    },
+    "news": null,
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  },
+  {
+    "id": 4,
+    "name": "LILLY",
+    "website": "www.lilly.com",
+    "logo_url": "assets/img/lilly_logo.png",
+    "summary": "Description en une phrase",
+    "description": "Description de l'exposant lilly",
+    "figures": "Chiffres clefs",
+    "staffing": "Mode de recrutement",
+    "profiles": "Postes et responsabilités",
+    "more": "Informations complémentaires",
+    "stand": "Emplacement",
+    "category": {
+      "id": 2,
+      "name": "Industrie",
+      "color": "#e82288",
+      "map_url": "http://url/image.png"
+    },
+    "news": null,
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  },
+  {
+    "id": 5,
+    "name": "NESTLE",
+    "website": "www.nestle.com",
+    "logo_url": "assets/img/nestle_logo.png",
+    "summary": "Description en une phrase",
+    "description": "Description de l'exposant NESTLE",
+    "figures": "Chiffres clefs",
+    "staffing": "Mode de recrutement",
+    "profiles": "Postes et responsabilités",
+    "more": "Informations complémentaires",
+    "stand": "Emplacement",
+    "category": {
+      "id": 2,
+      "name": "Industrie",
+      "color": "#e82288",
+      "map_url": "http://url/image.png"
+    },
+    "news": null,
+    "created_at": "2016-08-16 16:49:38",
+    "updated_at": "2016-08-16 16:49:38"
+  }
+]

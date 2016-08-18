@@ -1,6 +1,6 @@
-<div class="article_body article_{{indexArticle}} grey_bg">
+<div class="article_body grey_bg">
     <div class="player_block">
-        <button class="article_back_btn" ng-click="hideArticle(indexArticle)">
+        <button class="article_back_btn" ng-click="hideArticle()">
             <img src="assets/img/close_back_icn.png" alt="" width="16">
         </button>
         <a href="" class="play_btn">
@@ -9,12 +9,17 @@
         <img ng-src="{{actualite.image ? actualite.image : 'assets/img/news_img01.jpg'}}" alt="">
     </div>
     <div class="article_content">
-        <span class="article_infos orange_clr">Vidéo, Publiée le 27/03/16</span>
+        <span class="article_infos orange_clr">{{ types_actualites[actualite.type].name ? types_actualites[actualite.type].name : 'article'}}, Publiée le 27/03/16</span>
         <h4 class="news_title darkPurple_clr">
             {{actualite.title}}
         </h4>
         <p>
             {{actualite.description}}
+        </p>
+        <br>
+        <h4 class="darkPurple_clr">{{actualite.company.name}}</h4>
+        <p>
+            {{actualite.company.description}}
         </p>
     </div>
 </div>

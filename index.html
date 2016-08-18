@@ -26,12 +26,17 @@
 
 </head>
 
-<body class="page_cover" ng-controller="BodyController">
+<body class="page_cover" scroll ng-controller="BodyController">
 <div ng:include="'src/menu/header.html'"></div>
 <div ui-view>
 
 </div>
 <div ng:include="'src/menu/footer.html'"></div>
+
+
+<!--<script src="js/vendor/jquery-1.11.2.min.js"></script>-->
+<!--<script src="js/main.js"></script>-->
+
 
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -56,6 +61,9 @@
 
 <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
 <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+
+<script src="bower_components/angular-touch/angular-touch.min.js"></script>
 
 <!-- Chosen angularJS -->
 <script src="bower_components/chosen/chosen.jquery.js"></script>
@@ -84,8 +92,9 @@
 <script src="src/directives/articleDirective.js"></script>
 <script src="src/directives/exposantDirective.js"></script>
 <script src="src/directives/scrollWindowDirective.js"></script>
+<script src="src/directives/utilsDirectives.js"></script>
 
 <!-- include services -->
-<!--<script src="src/services/RestService.js"></script>-->
+<script src="src/services/restService.js"></script>
 </body>
 </html>

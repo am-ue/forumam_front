@@ -3,71 +3,15 @@
     angular
         .module('exposants')
         .controller('exposantsController', [
-            '$rootScope', '$scope', '$location', 'exposantsService',
+            '$rootScope', '$scope', '$location', 'exposantsService','$filter',
             exposantsController
         ]);
 
-    function exposantsController($rootScope, $scope, $location, exposantsService) {
+    function exposantsController($rootScope, $scope, $location, exposantsService,$filter) {
         console.log('exposantsController');
 
-        $scope.exposants = [
-            {
-                title: 'Novo Nordisk',
-                description: 'Description de l’exposant',
-                image: 'assets/img/novonordisk_logo.png'
-            },
-            {
-                title: 'Novo Nordisk1',
-                description: 'Description de l’exposant',
-                image: 'assets/img/leroymerlin_logo(02).png'
-            },
-            {
-                title: 'Novo Nordisk2',
-                description: 'Description de l’exposant en une phrase',
-                image: 'assets/img/lorial_logo.png'
-            },
-            {
-                title: 'Novo Nordisk3',
-                description: 'Description de l’exposant',
-                image: 'assets/img/lilly_logo.png'
-            },
-            {
-                title: 'Novo Nordisk4',
-                description: 'Description de l’exposant',
-                image: 'assets/img/nestle_logo.png'
-            },
-            {
-                title: 'Novo Nordisk5',
-                description: 'Description de l’exposant',
-                image: 'assets/img/novonordisk_logo.png'
-            },
-            {
-                title: 'Novo Nordisk6',
-                description: 'Description de l’exposant',
-                image: 'assets/img/novonordisk_logo.png'
-            },
-            {
-                title: 'Novo Nordisk7',
-                description: 'Description de l’exposant',
-                image: 'assets/img/novonordisk_logo.png'
-            },
-            {
-                title: 'Novo Nordisk8',
-                description: 'Description de l’exposant',
-                image: 'assets/img/novonordisk_logo.png'
-            },
-            {
-                title: 'Novo Nordisk9',
-                description: 'Description de l’exposant',
-                image: 'assets/img/novonordisk_logo.png'
-            }
-        ];
-
         $scope.showExposant = function (index, event) {
-            console.log('showExposant index ', index);
-            //debugger;
-            $scope.currentExposant = $scope.exposants[index];
-            $scope.currentIndex = index;
+            $scope.currentExposant = $scope.companies[index];
             var exposantsItems = $('.exposants_liste li a');
             if (exposantsItems.length) {
                 var _body = $('body');
@@ -85,6 +29,25 @@
                 return false;
             }
         };
+
+        exposantsService.loadAllCompanies().success(function (data) {
+                $scope.companies = data;
+            })
+            .error(function (error) {
+                console.error(error);
+            });
+
+        exposantsService.loadAllCategories().success(function (data) {
+                $scope.categories = data;
+            })
+            .error(function (error) {
+                console.error(error);
+            });
+
+        $scope.resetSearch = function(){
+            $scope.selectedCategory = null;
+            $scope.search = '';
+        }
     }
 
 })
