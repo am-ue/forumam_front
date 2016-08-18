@@ -1,7 +1,7 @@
-﻿var env = 'prod';
+﻿var env = 'local';
 var base_url;
 if (env == 'local') {
-    base_url = "http://localhost/forumam_front/data/"
+    base_url = "./data/"
 } else {
     base_url = window.location.protocol + "://" + window.location.host + ":" + window.location.port + "/";
 }
@@ -14,7 +14,6 @@ var app = angular.module('app', ['ngResource',
     'angular-bind-html-compile',
     'localytics.directives',
     'ngTouch',
-    'ui.router',
     'commons',
     'accueil',
     'authentification',
