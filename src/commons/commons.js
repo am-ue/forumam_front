@@ -12,7 +12,6 @@
             console.log('Current route name: ' + $location.path());
             $('html,body').stop().animate({ scrollTop: 0 },600);
             $rootScope.targetUrl = $location.path().split('/')[1];
-
         });
 
         $scope.targetPage = function (path) {

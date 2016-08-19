@@ -111,25 +111,17 @@ body *{
 }
 
 
-.grey_placeholder::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #b5b4b4;
-    font-size: 16px;
-    font-weight: normal;
+.simple_field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    opacity: 1;
 }
-.grey_placeholder::-moz-placeholder { /* Firefox 19+ */
-    color: #b5b4b4;
-    font-size: 16px;
-    font-weight: normal;
+.simple_field::-moz-placeholder { /* Firefox 19+ */
+    opacity: 1;
 }
-.grey_placeholder:-ms-input-placeholder { /* IE 10+ */
-    color: #b5b4b4;
-    font-size: 16px;
-    font-weight: normal;
+.simple_field:-ms-input-placeholder { /* IE 10+ */
+    opacity: 1;
 }
-.grey_placeholder:-moz-placeholder { /* Firefox 18- */
-    color: #b5b4b4;
-    font-size: 16px;
-    font-weight: normal;
+.simple_field:-moz-placeholder { /* Firefox 18- */
+    opacity: 1;
 }
 /* ==========================================================================
    Author's custom styles

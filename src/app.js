@@ -14,6 +14,7 @@ var app = angular.module('app', ['ngResource',
     'angular-bind-html-compile',
     'localytics.directives',
     'ngTouch',
+    'underscore',
     'commons',
     'accueil',
     'authentification',
@@ -40,7 +41,23 @@ app.config(
                 resolve: {
                     lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
-                            name: 'biensePreparer',
+                            name: 'accueil',
+                            files: [
+                                'src/accueil/accueilController.js',
+                                'src/accueil/accueilService.js'
+                            ]
+                        });
+                    }]
+                }
+            })
+            .state('actualites', {
+                url: "/actualites/:param",
+                templateUrl: 'src/accueil/accueil.html',
+                controller: 'accueilController',
+                resolve: {
+                    lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'actualites',
                             files: [
                                 'src/accueil/accueilController.js',
                                 'src/accueil/accueilService.js'
@@ -104,7 +121,7 @@ app.config(
                 resolve: {
                     lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
-                            name: 'exposants',
+                            name: 'infosPratique',
                             files: [
                                 'src/infos_pratique/infosPratiqueController.js',
                                 'src/infos_pratique/infosPratiqueService.js'

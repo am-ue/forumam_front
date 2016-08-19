@@ -3,12 +3,31 @@
     angular
         .module('accueil')
         .controller('accueilController', [
-            '$rootScope', '$scope', '$location', 'accueilService',
+            '$rootScope', '$scope', '$location', 'accueilService', '$stateParams', '_','$timeout','$q',
             accueilController
         ]);
 
-    function accueilController($rootScope, $scope, $location, accueilService) {
+    function accueilController($rootScope, $scope, $location, accueilService, $stateParams, _, $timeout,$q) {
         console.log('accueilController');
+        $rootScope.getActualitesPromise = $q.defer();
+        accueilService.loadAll()
+            .success(function (data) {
+                $rootScope.getActualitesPromise.resolve();
+                $rootScope.actualites = data;
+            })
+            .error(function (error) {
+                $rootScope.getActualitesPromise.resolve();
+                console.error(error);
+            });
+
+        $scope.idActualite = $stateParams.param;
+
+        $scope.getActualite = function (idActualite) {
+            var currentActualite = _.findWhere($rootScope.actualites, { 'id': parseInt(idActualite) });
+            //console.log('currentActualite ', currentActualite);
+            return currentActualite ? currentActualite : null;
+        };
+
 
         $rootScope.types_actualites = {
             'article': {
@@ -166,38 +185,31 @@
                 });
             }
         };
-
-        $scope.loadMapPlan();
+        if (typeof google === 'object' && typeof google.maps === 'object') {
+            $scope.loadMapPlan();
+        }
         /* End Load mapPlan */
+
 
         $scope.showArticle = function (index) {
             $rootScope.currentActualite = $scope.actualites[index];
-            var newsItems = $('.news_list > li > a');
-            if (newsItems.length) {
-                var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
-                articleAsidePopin.addClass('active');
-                var newsSection = angular.element(document.querySelector('#news_area'));
-                var targetLinkOffset = newsSection.offset().top - 62;
-                $('html,body').stop().animate({scrollTop: targetLinkOffset}, 600);
-                return false;
-            }
+            $location.path("actualites/"+$rootScope.currentActualite.id);
         };
 
-        $scope.hideArticle = function () {
-            var newsItems = $('.news_list > li > a');
-            if (newsItems.length) {
-                var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
-                articleAsidePopin.removeClass('active');
-                return false;
-            }
-        };
+        $rootScope.getActualitesPromise.promise.then(function () {
+            if ($scope.idActualite && $scope.idActualite != '') {
+                var target_news_area = angular.element(document.querySelector("#target_news_area"));
 
-        accueilService.loadAll()
-            .success(function (data) {
-                $scope.actualites = data;
-            })
-            .error(function (error) {
-            console.error(error);
+                var targetLinkOffset = $(target_news_area.attr('data-href')).offset().top - 62;
+                target_news_area.addClass('active');
+                $timeout(function () {
+                    var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
+                    articleAsidePopin.addClass('active');
+                }, 1000);
+                /*$('html,body');*/
+                $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
+                $rootScope.currentActualite = $scope.getActualite($scope.idActualite);
+            }
         });
 
 

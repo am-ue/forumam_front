@@ -3,7 +3,7 @@
         <button class="article_back_btn" ng-click="hideArticle()">
             <img src="assets/img/close_back_icn.png" alt="" width="16">
         </button>
-        <a href="" class="play_btn">
+        <a href="" class="play_btn" ng-if="actualite.type == 'video'">
             <img src="assets/img/big_video_play_icn.png" alt="">
         </a>
         <img ng-src="{{actualite.image ? actualite.image : 'assets/img/news_img01.jpg'}}" alt="">
@@ -18,6 +18,7 @@
         </p>
         <br>
         <h4 class="darkPurple_clr">{{actualite.company.name}}</h4>
+        <br>
         <p>
             {{actualite.company.description}}
         </p>
