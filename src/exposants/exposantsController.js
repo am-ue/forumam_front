@@ -20,22 +20,22 @@
                 console.error(error);
             });
 
-        $scope.idExposant = $stateParams.param;
+        $scope.idExposant = $stateParams.id;
 
         $scope.getExposant = function (idExposant) {
-            var currentExposant = _.findWhere($rootScope.exposants, {'id': parseInt(idExposant)});
-            return currentExposant ? currentExposant : null;
+            $scope.exposant = {};
+            $scope.exposant = _.findWhere($rootScope.exposants, {'id': parseInt(idExposant)});
+            return $scope.exposant ? $scope.exposant : null;
         };
 
         $scope.showExposant = function (index) {
             $rootScope.currentExposant = $rootScope.exposants[index];
-            $state.reload();
-            $location.path("listExposants/" + $rootScope.currentExposant.id);
+            $state.go('listExposants', { id: $rootScope.currentExposant.id }, {reload: true});
         };
 
         $rootScope.getExposantsPromise.promise.then(function () {
             if ($scope.idExposant && $scope.idExposant != '') {
-                $rootScope.currentActualite = $scope.getExposant($scope.idExposant);
+                $rootScope.currentExposant = $scope.getExposant($scope.idExposant);
                 var exposantsItems = $('.exposants_liste li a');
                 exposantsItems.removeClass('active');
 
@@ -67,7 +67,15 @@
         $scope.resetSearch = function () {
             $scope.selectedCategory = null;
             $scope.search = '';
-        }
+        };
+
+        $scope.$watch('selectedCategory', function(newValue, oldValue) {
+            $rootScope.selectedCategory = $scope.selectedCategory;
+        });
+
+        $scope.$watch('search', function(newValue, oldValue) {
+            $rootScope.search = $scope.search;
+        });
     }
 
 })

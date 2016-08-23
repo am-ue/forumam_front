@@ -15,6 +15,7 @@ var app = angular.module('app', ['ngResource',
     'localytics.directives',
     'ngTouch',
     'underscore',
+    'ngMessages',
     'commons',
     'accueil',
     'authentification',
@@ -55,7 +56,7 @@ app.config(
                 }
             })
             .state('actualites', {
-                url: "/actualites/:param",
+                url: '/actualites/{id:[0-9]*}',
                 templateUrl: 'src/accueil/accueil.html',
                 controller: 'accueilController',
                 resolve: {
@@ -151,7 +152,7 @@ app.config(
                 }
             })
             .state('listExposants', {
-                url: "/listExposants/:param",
+                url: "/listExposants/{id:[0-9]*}",
                 templateUrl: 'src/exposants/exposants.html',
                 controller: 'exposantsController',
                 resolve: {

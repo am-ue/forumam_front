@@ -3,13 +3,14 @@
     angular
         .module('accueil')
         .controller('accueilController', [
-            '$rootScope', '$scope', '$location', 'accueilService', '$stateParams', '_','$timeout','$q','$state',
+            '$rootScope', '$scope', '$location', 'accueilService', '$stateParams', '_', '$timeout', '$q', '$state',
             accueilController
         ]);
 
-    function accueilController($rootScope, $scope, $location, accueilService, $stateParams, _, $timeout,$q,$state) {
+    function accueilController($rootScope, $scope, $location, accueilService, $stateParams, _, $timeout, $q, $state) {
         console.log('accueilController');
         $rootScope.getActualitesPromise = $q.defer();
+        $scope.contact={};
         accueilService.loadAll()
             .success(function (data) {
                 $rootScope.getActualitesPromise.resolve();
@@ -20,12 +21,13 @@
                 console.error(error);
             });
 
-        $scope.idActualite = $stateParams.param;
+        $scope.idActualite = $stateParams.id;
 
         $scope.getActualite = function (idActualite) {
-            var currentActualite = _.findWhere($rootScope.actualites, { 'id': parseInt(idActualite) });
+            $scope.actualite = {};
+            $scope.actualite = _.findWhere($rootScope.actualites, {'id': parseInt(idActualite)});
             //console.log('currentActualite ', currentActualite);
-            return currentActualite ? currentActualite : null;
+            return $scope.actualite ? $scope.actualite : null;
         };
 
         $rootScope.types_actualites = {
@@ -192,8 +194,7 @@
 
         $scope.showArticle = function (index) {
             $rootScope.currentActualite = $scope.actualites[index];
-            //$state.reload();
-            $location.path("actualites/"+$rootScope.currentActualite.id);
+            $state.go('actualites', { id: $rootScope.currentActualite.id }, {reload: true});
         };
 
         $rootScope.getActualitesPromise.promise.then(function () {
@@ -209,12 +210,35 @@
                 /*$('html,body');*/
                 $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
                 $rootScope.currentActualite = $scope.getActualite($scope.idActualite);
-                if($rootScope.currentActualite.type == 'video'){
-                    $rootScope.currentActualite.link_youtube = 'https://www.youtube.com/watch?v='+ $rootScope.currentActualite.youtube_id;
+                if ($rootScope.currentActualite.type == 'video') {
+                    $rootScope.currentActualite.link_youtube = 'https://www.youtube.com/watch?v=' + $rootScope.currentActualite.youtube_id;
                 }
             }
         });
 
+        $scope.sendEmail = function (contact) {
+
+            if ($scope.contactForm.$invalid) {
+                console.log($scope.contactForm.$error);
+                return;
+            }
+            $scope.contact = contact;
+            formData = new FormData();
+            formData.append('name',  $scope.contact.name);
+            formData.append('email',  $scope.contact.email);
+            formData.append('message',  $scope.contact.message);
+            accueilService.sendEmail(formData, function (res) {
+                console.log(" res", res);
+                $scope.success = res.message;
+            }, function (res) {
+                console.log(" res.error", res);
+                if(!angular.isObject(res.errors)){
+                    $scope.errors = res.errors;
+                }else{
+                    $scope.formErrors = res.errors;
+                }
+            })
+        }
 
     }
 

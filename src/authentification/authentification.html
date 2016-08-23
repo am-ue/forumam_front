@@ -27,13 +27,16 @@
         <div class="right_parte bloc_connexion">
             <div class="title_area">
                 <div class="block_content">
-                    <div ng-show="formErrors">
+                    <div ng-show="formErrors" class="alert">
                         <div class="errors">
                             <p ng-repeat="(key, value)  in formErrors track by $index">{{ value[0] }}</p>
                         </div>
                     </div>
-                    <div data-ng-show="errors">{{errors}}</div>
-                    <form action="" id="espace_connexion" class="active">
+                    <div data-ng-show="errors" class="alert">{{errors}}</div>
+                    <div data-ng-show="success" class="info_success">
+                        {{success}}
+                    </div>
+                    <form action="" id="espace_connexion" class="active" novalidate>
                         <p class="control_group">
                             <input type="text" class="simple_field darkPurple_clr connexion_nom_utilisateur"
                                    placeholder="Nom d’utilisateur" required>
@@ -46,43 +49,63 @@
                             <button class="btn purple_btn inverted_btn animated_btn" ng-click="signin()"><span>Se connecter</span>
                             </button>
                         </div>
-                        <p class="txt_oublier_pass darkPurple_clr align_center">Mot de passe oublié : <a href="#"
-                                                                                                         title="Contactez-nous"
-                                                                                                         class="darkPurple_clr">Contactez-nous</a>
+                        <p class="txt_oublier_pass darkPurple_clr align_center">Mot de passe oublié :
+                            <a href="#" title="Contactez-nous" class="darkPurple_clr">Contactez-nous</a>
                         </p>
-                        <p class="txt_inscrire_pass orange_clr align_center">Vous souhaitez vous inscrire ? <a href="#"
-                                                                                                               title="Cliquez ici"
-                                                                                                               class="orange_clr">Cliquez
-                            ici</a></p>
+                        <p class="txt_inscrire_pass orange_clr align_center">Vous souhaitez vous inscrire ?
+                            <a href="#" title="Cliquez ici" class="orange_clr">Cliquezici</a>
+                        </p>
                     </form>
-                    <form action="" id="espace_inscription">
-                        <p class="control_group">
-                            <input type="text" class="simple_field darkPurple_clr full_size" ng-model="company.name"
+                    <form id="espace_inscription" name="inscriptionForm" novalidate>
+                        <div class="control_group">
+                            <input type="text" name="name" class="simple_field darkPurple_clr full_size" ng-model="company.name"
                                    placeholder="Nom de l’entreprise" required>
-                        </p>
-                        <p class="control_group">
-                            <input type="text" class="simple_field darkPurple_clr full_size"
+                            <div ng-if="inscriptionForm.name.$dirty" ng-messages="inscriptionForm.name.$error" class="alert">
+                                <div ng-message="required">Le champ nom est obligatoire</div>
+                            </div>
+                        </div>
+                        <div class="control_group">
+                            <input type="text" name="nameRespo" class="simple_field darkPurple_clr full_size"
                                    ng-model="company.nameRespo" placeholder="Nom du responsable" required>
-                        </p>
-                        <p class="control_group">
-                            <input type="password" class="simple_field darkPurple_clr full_size"
+                            <div ng-if="inscriptionForm.nameRespo.$dirty" ng-messages="inscriptionForm.nameRespo.$error" class="alert">
+                                <div ng-message="required">Le champ nom du responsable est obligatoire</div>
+                            </div>
+                        </div>
+                        <div class="control_group">
+                            <input type="password" name="password" class="simple_field darkPurple_clr full_size"
                                    ng-model="company.password" placeholder="Mot de passe" required>
-                        </p>
-                        <p class="control_group">
-                            <input type="mail" class="simple_field darkPurple_clr full_size" ng-model="company.email"
+                            <div ng-if="inscriptionForm.password.$dirty" ng-messages="inscriptionForm.password.$error" class="alert">
+                                <div ng-message="required">Le champ mot de passe est obligatoire</div>
+                            </div>
+                        </div>
+                        <div class="control_group">
+                            <input type="email" name="email" class="simple_field darkPurple_clr full_size" ng-model="company.email"
                                    placeholder="Email*" required>
-                        </p>
-                        <p class="control_group">
-                            <input type="tel" class="simple_field darkPurple_clr full_size" ng-model="company.phone"
-                                   placeholder="Téléphone" required>
-                        </p>
+                            <div ng-if="inscriptionForm.email.$dirty" ng-messages="inscriptionForm.email.$error" class="alert">
+                                <div ng-message="required">Le champ email est obligatoire</div>
+                                <div ng-message="email">Le champ email doit être une adresse email valide.</div>
+                            </div>
+                        </div>
+                        <div class="control_group">
+                            <input type="tel" name="phone" class="simple_field darkPurple_clr full_size" ng-model="company.phone"
+                                   placeholder="Téléphone" ng-pattern="/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/" required />
+                            <div ng-if="inscriptionForm.phone.$dirty" ng-messages="inscriptionForm.phone.$error" class="alert">
+                                <div ng-message="required">Le champ téléphone est obligatoire</div>
+                                <div ng-message="pattern">Le format du champ Téléphone est invalide</div>
+                            </div>
+                        </div>
 
-                        <p class="control_group last_group">
+                        <div class="control_group last_group">
                             <label for="" class="darkPurple_clr full_size">Contact de facturation</label>
                             <textarea ng-model="company.facturation"
                                       class="simple_field darkPurple_clr grey_placeholder full_size"
-                                      placeholder="Nom, téléphone, mail, adresse"></textarea>
-                        </p>
+                                      placeholder="Nom, téléphone, mail, adresse"  ng-maxlength="1000">
+
+                            </textarea>
+                            <div ng-if="inscriptionForm.message.$dirty" ng-messages="inscriptionForm.message.$error" class="alert">
+                                <div ng-message="maxlength">Le texte de contact de facturation ne peut contenir plus de 1000 caractères</div>
+                            </div>
+                        </div>
                         <div class="align_center">
                             <button class="btn purple_btn inverted_btn animated_btn" ng-click="signup(company)"><span>S’inscrire</span>
                             </button>

@@ -1,12 +1,15 @@
 (function () {
     var commons = angular.module('commons', []);
 
-    commons.controller('BodyController', ["$scope", "$location", "$rootScope", BodyController]);
+    commons.controller('BodyController', ["$scope", "$location", "$rootScope","$state", BodyController]);
 
-    function BodyController($scope, $location, $rootScope) {
+    function BodyController($scope, $location, $rootScope,$state) {
         if ($location.path() == '/' || $location.path() == '') {
             $location.path('accueil');
         }
+
+        $rootScope.selectedCategory = null;
+        $rootScope.search = '';
 
         $scope.$on('$stateChangeSuccess', function ($currentRoute, $previousRoute) {
             console.log('Current route name: ' + $location.path());

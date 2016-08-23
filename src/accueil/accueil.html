@@ -289,20 +289,38 @@
                 </div>
             </div>
             <div class="block_content">
-                <form action="" id="" class="contact_form">
-                    <p class="control_group">
-                        <input type="text" class="simple_field darkPurple_clr full_size" placeholder="Nom*" required>
-                    </p>
-                    <p class="control_group">
-                        <input type="mail" class="simple_field darkPurple_clr full_size" placeholder="Email*" required>
-                    </p>
-                    <p class="control_group last_group">
+                <form class="contact_form" name="contactForm" novalidate>
+                    <div class="control_group">
+                        <input type="text" name="name" ng-model="contact.name" class="simple_field darkPurple_clr full_size"
+                               placeholder="Nom*" ng-required="true">
+                        <div ng-if="contactForm.name.$dirty" ng-messages="contactForm.name.$error" class="alert">
+                            <div ng-message="required">Le champ nom est obligatoire</div>
+                        </div>
+                    </div>
+                    <div class="control_group">
+                        <input type="email" name="email" ng-model="contact.email" class="simple_field darkPurple_clr full_size"
+                               placeholder="Email*" ng-required="true">
+                        <div ng-if="contactForm.email.$dirty" ng-messages="contactForm.email.$error" class="alert">
+                            <div ng-message="required">Le champ email est obligatoire</div>
+                            <div ng-message="email">Le champ email doit être une adresse email valide.</div>
+                        </div>
+                    </div>
+                    <div class="control_group last_group">
                         <label for="" class="darkPurple_clr full_size">Message*</label>
-                        <textarea name="" id="" class="simple_field darkPurple_clr full_size"></textarea>
-                    </p>
+                        <textarea name="message" ng-model="contact.message" class="simple_field darkPurple_clr full_size"
+                                   ng-maxlength="1000" ng-required="true">
+                        </textarea>
+
+                        <div ng-if="contactForm.message.$dirty" ng-messages="contactForm.message.$error" class="alert">
+                            <div ng-message="required">Le champ message est obligatoire</div>
+                            <div ng-message="maxlength">Le texte de message ne peut contenir plus de 1000 caractères</div>
+                        </div>
+                    </div>
                     <div class="align_right">
-                        <button type="submit" class="btn purple_btn inverted_btn small_btn animated_btn">
-                            <span>Envoyer</span></button>
+                        <button type="submit" ng-click="sendEmail(contact)"
+                                class="btn purple_btn inverted_btn small_btn animated_btn">
+                            <span>Envoyer</span>
+                        </button>
                     </div>
                 </form>
             </div>

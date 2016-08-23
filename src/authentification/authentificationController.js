@@ -11,7 +11,7 @@
         console.log('authentificationController');
 
         $scope.currentPath = $location.path().split('/')[1];
-        $scope.company={};
+        $scope.company = {};
 
         /* afficher block connexion */
         $scope.showConnexion = function (event) {
@@ -46,39 +46,45 @@
             espace_connexion.hide();
             return false;
         };
-
-        if ($scope.currentPath && $scope.currentPath == 'signup') {
-            var inscriptionTitle = angular.element(document.getElementsByClassName("title_inscription"));
-            inscriptionTitle.addClass("active");
-            $scope.displaySingup();
-        } else {
-            var connexionTitle = angular.element(document.getElementsByClassName("title_connexion"));
-            connexionTitle.addClass("active");
-            $scope.displayLogin();
-        }
+        /*
+         if ($scope.currentPath && $scope.currentPath == 'signup') {
+         var inscriptionTitle = angular.element(document.getElementsByClassName("title_inscription"));
+         inscriptionTitle.addClass("active");
+         $scope.displaySingup();
+         } else {
+         var connexionTitle = angular.element(document.getElementsByClassName("title_connexion"));
+         connexionTitle.addClass("active");
+         $scope.displayLogin();
+         }*/
 
         $scope.signin = function () {
 
         };
 
         $scope.signup = function (company) {
+            if ($scope.inscriptionForm.$invalid) {
+                return;
+            }
             $scope.company = company;
             formData = new FormData();
-            formData.append('name',  $scope.company.name);
-            formData.append('nameRespo',  $scope.company.nameRespo);
-            formData.append('password',  $scope.company.password);
-            formData.append('email',  $scope.company.email);
-            formData.append('phone',  $scope.company.phone);
-            formData.append('facturation',  $scope.company.facturation);
-            //console.log("formData",formData);
+            formData.append('name', $scope.company.name);
+            formData.append('nameRespo', $scope.company.nameRespo);
+            formData.append('password', $scope.company.password);
+            formData.append('email', $scope.company.email);
+            formData.append('phone', $scope.company.phone);
+            formData.append('facturation', $scope.company.facturation);
+            console.log("formData", formData);
             authentificationService.signup(formData, function (res) {
-                $scope.success = res.success;
+                console.log(" res", res);
+                if (angular.isObject(res) && res.code === 200) {
+                    $scope.success = res.message;
+                }
             }, function (res) {
-                console.log(" res.error", res.errors);
-                if(!angular.isObject(res.errors)){
-                    $scope.errors = res.errors;
-                }else{
+                console.log(" res.error", res);
+                if (angular.isObject(res.errors) && res.code === 206) {
                     $scope.formErrors = res.errors;
+                } else {
+                    $scope.errors = res.errors;
                 }
             })
         };

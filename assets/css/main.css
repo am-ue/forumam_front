@@ -2917,3 +2917,11 @@ h3.lien_connexion a{
         page-break-after: avoid;
     }
 }
+
+.alert {
+    color: red;
+}
+
+.info_success {
+    color: green;
+}

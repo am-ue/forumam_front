@@ -10,6 +10,10 @@
         return {
             loadAll: function () {
                 return restService.call('GET', 'actualites', {});
+            },
+            sendEmail: function(data, success, error)  {
+                data = (typeof data === 'undefined') ? {} : data;
+                return restService.call('POST', "email/send", data).success(success).error(error);
             }
         };
     }
