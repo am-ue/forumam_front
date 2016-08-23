@@ -3,11 +3,11 @@
     angular
         .module('accueil')
         .controller('accueilController', [
-            '$rootScope', '$scope', '$location', 'accueilService', '$stateParams', '_','$timeout','$q',
+            '$rootScope', '$scope', '$location', 'accueilService', '$stateParams', '_','$timeout','$q','$state',
             accueilController
         ]);
 
-    function accueilController($rootScope, $scope, $location, accueilService, $stateParams, _, $timeout,$q) {
+    function accueilController($rootScope, $scope, $location, accueilService, $stateParams, _, $timeout,$q,$state) {
         console.log('accueilController');
         $rootScope.getActualitesPromise = $q.defer();
         accueilService.loadAll()
@@ -27,7 +27,6 @@
             //console.log('currentActualite ', currentActualite);
             return currentActualite ? currentActualite : null;
         };
-
 
         $rootScope.types_actualites = {
             'article': {
@@ -193,6 +192,7 @@
 
         $scope.showArticle = function (index) {
             $rootScope.currentActualite = $scope.actualites[index];
+            //$state.reload();
             $location.path("actualites/"+$rootScope.currentActualite.id);
         };
 
@@ -209,6 +209,9 @@
                 /*$('html,body');*/
                 $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
                 $rootScope.currentActualite = $scope.getActualite($scope.idActualite);
+                if($rootScope.currentActualite.type == 'video'){
+                    $rootScope.currentActualite.link_youtube = 'https://www.youtube.com/watch?v='+ $rootScope.currentActualite.youtube_id;
+                }
             }
         });
 

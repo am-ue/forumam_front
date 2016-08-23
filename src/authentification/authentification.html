@@ -4,16 +4,19 @@
             <div class="title_area">
                 <h3 class="block_title with_bg lien_connexion">
                     <img src="assets/img/icon_connexion.png" alt="" class="title_box_img">
-                    <a href="" title="Connexion" class="title_connexion small_title_parte active" ng-click="showConnexion($event)">
+                    <a href="" title="Connexion" class="title_connexion small_title_parte active"
+                       ng-click="showConnexion($event)">
                         Connexion
                     </a>
-                    <a href="" title="Connexion" class="title_inscription small_title_parte" ng-click="showInscription($event)">
+                    <a href="" title="Connexion" class="title_inscription small_title_parte"
+                       ng-click="showInscription($event)">
                         Inscription
                     </a>
                 </h3>
                 <div class="block_content txt_connexion align_center">
                     <p class="mb_15">
-                        Toutes les informations relatives à votre participation au Forum Arts & Métiers sont disponibles ici
+                        Toutes les informations relatives à votre participation au Forum Arts & Métiers sont disponibles
+                        ici
                     </p>
                     <p>
                         <a href="" class="btn orange_btn animated_btn"><span>Télécharger en pdf</span></a>
@@ -24,42 +27,65 @@
         <div class="right_parte bloc_connexion">
             <div class="title_area">
                 <div class="block_content">
+                    <div ng-show="formErrors">
+                        <div class="errors">
+                            <p ng-repeat="(key, value)  in formErrors track by $index">{{ value[0] }}</p>
+                        </div>
+                    </div>
+                    <div data-ng-show="errors">{{errors}}</div>
                     <form action="" id="espace_connexion" class="active">
                         <p class="control_group">
-                            <input type="text" class="simple_field darkPurple_clr connexion_nom_utilisateur" placeholder="Nom d’utilisateur" required>
+                            <input type="text" class="simple_field darkPurple_clr connexion_nom_utilisateur"
+                                   placeholder="Nom d’utilisateur" required>
                         </p>
                         <p class="control_group">
-                            <input type="text" class="simple_field darkPurple_clr connexion_mot_pass" placeholder="Mot de passe" required>
+                            <input type="text" class="simple_field darkPurple_clr connexion_mot_pass"
+                                   placeholder="Mot de passe" required>
                         </p>
                         <div class="align_right">
-                            <button class="btn purple_btn inverted_btn animated_btn"><span>Se connecter</span></button>
+                            <button class="btn purple_btn inverted_btn animated_btn" ng-click="signin()"><span>Se connecter</span>
+                            </button>
                         </div>
-                        <p class="txt_oublier_pass darkPurple_clr align_center">Mot de passe oublié : <a href="#" title="Contactez-nous" class="darkPurple_clr">Contactez-nous</a> </p>
-                        <p class="txt_inscrire_pass orange_clr align_center">Vous souhaitez vous inscrire ? <a href="#" title="Cliquez ici" class="orange_clr">Cliquez ici</a> </p>
+                        <p class="txt_oublier_pass darkPurple_clr align_center">Mot de passe oublié : <a href="#"
+                                                                                                         title="Contactez-nous"
+                                                                                                         class="darkPurple_clr">Contactez-nous</a>
+                        </p>
+                        <p class="txt_inscrire_pass orange_clr align_center">Vous souhaitez vous inscrire ? <a href="#"
+                                                                                                               title="Cliquez ici"
+                                                                                                               class="orange_clr">Cliquez
+                            ici</a></p>
                     </form>
                     <form action="" id="espace_inscription">
                         <p class="control_group">
-                            <input type="text" class="simple_field darkPurple_clr full_size" placeholder="Nom de l’entreprise" required>
+                            <input type="text" class="simple_field darkPurple_clr full_size" ng-model="company.name"
+                                   placeholder="Nom de l’entreprise" required>
                         </p>
                         <p class="control_group">
-                            <input type="text" class="simple_field darkPurple_clr full_size" placeholder="Nom du responsable" required>
+                            <input type="text" class="simple_field darkPurple_clr full_size"
+                                   ng-model="company.nameRespo" placeholder="Nom du responsable" required>
                         </p>
                         <p class="control_group">
-                            <input type="password" class="simple_field darkPurple_clr full_size" placeholder="Mot de passe" required>
+                            <input type="password" class="simple_field darkPurple_clr full_size"
+                                   ng-model="company.password" placeholder="Mot de passe" required>
                         </p>
                         <p class="control_group">
-                            <input type="mail" class="simple_field darkPurple_clr full_size" placeholder="Email*" required>
+                            <input type="mail" class="simple_field darkPurple_clr full_size" ng-model="company.email"
+                                   placeholder="Email*" required>
                         </p>
                         <p class="control_group">
-                            <input type="tel" class="simple_field darkPurple_clr full_size" placeholder="Téléphone" required>
+                            <input type="tel" class="simple_field darkPurple_clr full_size" ng-model="company.phone"
+                                   placeholder="Téléphone" required>
                         </p>
 
                         <p class="control_group last_group">
                             <label for="" class="darkPurple_clr full_size">Contact de facturation</label>
-                            <textarea name="" id="" class="simple_field darkPurple_clr grey_placeholder full_size" placeholder="Nom, téléphone, mail, adresse"></textarea>
+                            <textarea ng-model="company.facturation"
+                                      class="simple_field darkPurple_clr grey_placeholder full_size"
+                                      placeholder="Nom, téléphone, mail, adresse"></textarea>
                         </p>
                         <div class="align_center">
-                            <button class="btn purple_btn inverted_btn animated_btn"><span>S’inscrire</span></button>
+                            <button class="btn purple_btn inverted_btn animated_btn" ng-click="signup(company)"><span>S’inscrire</span>
+                            </button>
                         </div>
                     </form>
                 </div>

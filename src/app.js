@@ -27,6 +27,10 @@ var app = angular.module('app', ['ngResource',
 
 app.config(
     function ($stateProvider, $httpProvider, $urlRouterProvider) {
+        $httpProvider.defaults.headers.post['Content-Type'] = undefined;
+        $httpProvider.defaults.headers.put['Content-Type'] = undefined;
+        $httpProvider.defaults.transformRequest = angular.identity;
+
         //$urlRouterProvider.otherwise("/");
         $stateProvider
             .state('index', {
@@ -82,6 +86,38 @@ app.config(
                     }]
                 }
             })
+            .state('login', {
+                url: "/login",
+                templateUrl: 'src/authentification/authentification.html',
+                controller: 'authentificationController',
+                resolve: {
+                    lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'authentification',
+                            files: [
+                                'src/authentification/authentificationController.js',
+                                'src/authentification/authentificationService.js'
+                            ]
+                        });
+                    }]
+                }
+            })
+            .state('signup', {
+                url: "/signup",
+                templateUrl: 'src/authentification/authentification.html',
+                controller: 'authentificationController',
+                resolve: {
+                    lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'authentification',
+                            files: [
+                                'src/authentification/authentificationController.js',
+                                'src/authentification/authentificationService.js'
+                            ]
+                        });
+                    }]
+                }
+            })
             .state('biensePreparer', {
                 url: "/biensePreparer",
                 templateUrl: 'src/bien_se_preparer/bien_se_preparer.html',
@@ -106,6 +142,22 @@ app.config(
                     lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
                             name: 'exposants',
+                            files: [
+                                'src/exposants/exposantsController.js',
+                                'src/exposants/exposantsService.js'
+                            ]
+                        });
+                    }]
+                }
+            })
+            .state('listExposants', {
+                url: "/listExposants/:param",
+                templateUrl: 'src/exposants/exposants.html',
+                controller: 'exposantsController',
+                resolve: {
+                    lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'listExposants',
                             files: [
                                 'src/exposants/exposantsController.js',
                                 'src/exposants/exposantsService.js'

@@ -3,10 +3,9 @@
         <button class="article_back_btn" ng-click="hideArticle()">
             <img src="assets/img/close_back_icn.png" alt="" width="16">
         </button>
-        <a href="" class="play_btn" ng-if="actualite.type == 'video'">
-            <img src="assets/img/big_video_play_icn.png" alt="">
-        </a>
-        <img ng-src="{{actualite.image ? actualite.image : 'assets/img/news_img01.jpg'}}" alt="">
+        <div ng-if="actualite.type == 'video'" my-youtube code="actualite.youtube_id"></div>
+        <!--<img ng-if="actualite.type == 'video'"  ng-src="http://img.youtube.com/vi/{{actualite.youtube_id}}/hqdefault.jpg" alt="">-->
+        <img ng-if="actualite.type == 'article'"  ng-src="{{actualite.img_url ? actualite.img_url : 'assets/img/news_img01.jpg'}}" alt="">
     </div>
     <div class="article_content">
         <span class="article_infos orange_clr">{{ types_actualites[actualite.type].name ? types_actualites[actualite.type].name : 'article'}}, Publiée le 27/03/16</span>
