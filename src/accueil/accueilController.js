@@ -9,6 +9,9 @@
 
     function accueilController($rootScope, $scope, $location, accueilService, $stateParams, _, $timeout, $q, $state) {
         console.log('accueilController');
+        var _body = angular.element(document.getElementsByTagName("body"));
+        _body.addClass('page_cover');
+
         $rootScope.getActualitesPromise = $q.defer();
         $scope.contact={};
         accueilService.loadAll()

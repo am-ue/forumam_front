@@ -1,9 +1,9 @@
 (function () {
     var commons = angular.module('commons', []);
 
-    commons.controller('BodyController', ["$scope", "$location", "$rootScope","$state", BodyController]);
+    commons.controller('BodyController', ["$scope", "$location", "$rootScope", "$state", BodyController]);
 
-    function BodyController($scope, $location, $rootScope,$state) {
+    function BodyController($scope, $location, $rootScope, $state) {
         if ($location.path() == '/' || $location.path() == '') {
             $location.path('accueil');
         }
@@ -13,14 +13,16 @@
 
         $scope.$on('$stateChangeSuccess', function ($currentRoute, $previousRoute) {
             console.log('Current route name: ' + $location.path());
-            $('html,body').stop().animate({ scrollTop: 0 },600);
+            $('html,body').stop().animate({scrollTop: 0}, 600);
             $rootScope.targetUrl = $location.path().split('/')[1];
 
-            var exposants_page = angular.element(document.getElementsByClassName("page_cover"));
-            if($rootScope.targetUrl === 'exposants'){
-                exposants_page.addClass('exposants_page_cover');
-            }else{
-                exposants_page.removeClass('exposants_page_cover');
+            var _body = angular.element(document.getElementsByTagName("body"));
+            if ($rootScope.targetUrl === 'listExposants' || ($rootScope.targetUrl.indexOf('exposants') !== -1)) {
+                _body.addClass('exposants_page_cover');
+            } else {
+                _body.removeClass('exposants_page_cover');
+                _body.removeClass('exposant_opened');
+                _body.removeClass('page_cover');
             }
         });
 
@@ -83,7 +85,7 @@
             var exposantsItems = $('.exposants_liste li a');
             if (exposantsItems.length) {
                 _body.removeClass('exposant_opened');
-                $('html,body').stop().animate({ scrollTop: BodyScrollTop },300);
+                $('html,body').stop().animate({scrollTop: BodyScrollTop}, 300);
             }
         };
 

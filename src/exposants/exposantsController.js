@@ -39,7 +39,7 @@
                 exposantsItems.removeClass('active');
 
                 $timeout(function () {
-                    var _body = $('body');
+                    var _body = angular.element(document.getElementsByTagName("body"));
                     if (_body.hasClass('exposant_opened')) {
                         _body.removeClass('exposant_opened')
                     } else {
