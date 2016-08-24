@@ -46,16 +46,16 @@
             espace_connexion.hide();
             return false;
         };
-        /*
-         if ($scope.currentPath && $scope.currentPath == 'signup') {
-         var inscriptionTitle = angular.element(document.getElementsByClassName("title_inscription"));
-         inscriptionTitle.addClass("active");
-         $scope.displaySingup();
-         } else {
-         var connexionTitle = angular.element(document.getElementsByClassName("title_connexion"));
-         connexionTitle.addClass("active");
-         $scope.displayLogin();
-         }*/
+
+        if ($scope.currentPath && $scope.currentPath == 'signup') {
+            var inscriptionTitle = angular.element(document.getElementsByClassName("title_inscription"));
+            inscriptionTitle.addClass("active");
+            $scope.displaySingup();
+        } else {
+            var connexionTitle = angular.element(document.getElementsByClassName("title_connexion"));
+            connexionTitle.addClass("active");
+            $scope.displayLogin();
+        }
 
         $scope.signin = function () {
 

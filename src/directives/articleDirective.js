@@ -10,16 +10,14 @@ app.directive('article', function ($compile, $rootScope, $templateRequest) {
         },
         link: function (scope, element, attrs) {
         },
-        controller: function ($rootScope, $scope, $element) {
+        controller: function ($rootScope, $scope, $element,$window) {
             $scope.types_actualites = $rootScope.types_actualites;
             $scope.hideArticle = function () {
-                var newsItems = $('.news_list > li > a');
-                if (newsItems.length) {
-                    var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
-                    articleAsidePopin.removeClass('active');
-                    $rootScope.currentActualite = null;
-                    return false;
-                }
+                $rootScope.hideArticle();
+            };
+
+            $scope.goYoutube = function (youtube_id) {
+                $window.open("http://www.youtube.com/v/" + youtube_id, '_blank');
             };
 
         }

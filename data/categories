@@ -7,18 +7,36 @@
   },
   {
     "id": 1,
-    "name": "Formation - Start Up",
-    "color": "#e82285",
+    "name": "Conseil - Finance - Services",
+    "color": "#a10011",
     "map_url": "http://url/image.png"
   },
   {
     "id": 2,
-    "name": "Industrie",
-    "color": "#e82288",
+    "name": "Industrie - Grande distribution - Agro alimentaire",
+    "color": "#f99b07",
     "map_url": "http://url/image.png"
   },
   {
     "id": 3,
+    "name": "Formation - Start Up",
+    "color": "#813176",
+    "map_url": "http://url/image.png"
+  },
+  {
+    "id": 4,
+    "name": "Energie - BTP",
+    "color": "#1b7d16",
+    "map_url": "http://url/image.png"
+  },
+  {
+    "id": 5,
+    "name": "Transport - Defense",
+    "color": "#100fff",
+    "map_url": "http://url/image.png"
+  },
+  {
+    "id": 6,
     "name": "Autre catégorie",
     "color": "#e82285",
     "map_url": "http://url/image.png"

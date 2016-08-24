@@ -192,24 +192,32 @@
         /* End Load mapPlan */
 
 
-        $scope.showArticle = function (index) {
-            $rootScope.currentActualite = $scope.actualites[index];
-            $state.go('actualites', { id: $rootScope.currentActualite.id }, {reload: true});
+        $scope.showArticle = function (id) {
+            $state.go('actualites', { id: id }, {reload: true});
         };
 
         $rootScope.getActualitesPromise.promise.then(function () {
             if ($scope.idActualite && $scope.idActualite != '') {
-                var target_news_area = angular.element(document.querySelector("#target_news_area"));
 
-                var targetLinkOffset = $(target_news_area.attr('data-href')).offset().top - 62;
-                target_news_area.addClass('active');
+                //var target_news_area = angular.element(document.querySelector("#target_news_area"));
+                var news_list = angular.element(document.getElementsByClassName("news_list"));
+                var targetLinkOffset = $('.news_list').offset().top - 62;
+
+                //var targetLinkOffset = $(target_news_area.attr('data-href')).offset().top - 62;
+
+                //target_news_area.addClass('active');
                 $timeout(function () {
                     var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
                     articleAsidePopin.addClass('active');
                 }, 1000);
                 /*$('html,body');*/
                 $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
+                // Add div for control hide modal
+                angular.element(document.getElementsByClassName("cover")).css('display', 'block');
+
                 $rootScope.currentActualite = $scope.getActualite($scope.idActualite);
+                var date = $rootScope.currentActualite.created_at ? moment($rootScope.currentActualite.created_at, "YYYY-MM-DD hh:mm:ss").format("DD/MM/YY") : null;
+                $rootScope.currentActualite.datePub = angular.copy(date);
                 if ($rootScope.currentActualite.type == 'video') {
                     $rootScope.currentActualite.link_youtube = 'https://www.youtube.com/watch?v=' + $rootScope.currentActualite.youtube_id;
                 }

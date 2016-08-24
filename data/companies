@@ -1,6 +1,6 @@
 [
   {
-    "id": 134,
+    "id": 1,
     "name": "Novo Nordisk",
     "website": "www.novonordisk.com",
     "logo_url": "http://url/image.png",
@@ -12,12 +12,12 @@
     "more": "Informations complémentaires",
     "stand": "Emplacement",
     "category": {
-      "id": 1,
+      "id": 3,
       "name": "Formation - Start Up",
-      "color": "#e82285",
+      "color": "#813176",
       "map_url": "http://url/image.png"
     },
-    "news": [
+    "posts": [
       {
         "id": 1,
         "type": "video",
@@ -30,9 +30,10 @@
       {
         "id": 2,
         "type": "article",
-        "title": "Retour sur la 35e édition ",
-        "description": " Renouveau pour le Forum : communication, identité visuelle... le « must have » ! ",
-        "img_url": "http://mon/image.jpg",
+        "title" : "Retour sur la 35e édition ",
+        "description" : " Renouveau pour le Forum : communication, identité visuelle... le « must have » ! Renouveau pour le Forum : communication, identité visuelle... le « must have » ! Renouveau pour le Forum : communication, identité visuelle... le « must have » ! Renouveau pour le Forum : communication, identité visuelle... le « must have » ! Renouveau pour le Forum : communication, identité visuelle... le « must have » ! ",
+        "img_url" : "assets/img/news_img01.jpg",
+        "company" : null,
         "created_at": "2016-08-16 16:49:38",
         "updated_at": "2016-08-16 16:49:38"
       }
@@ -41,9 +42,9 @@
     "updated_at": "2016-08-16 16:49:38"
   },
   {
-    "id": 212,
-    "name": "Novo Nordisk",
-    "website": "www.novonordisk.com",
+    "id": 2,
+    "name": "Novo Nordisk 2",
+    "website": "www.novonordisk2.com",
     "logo_url": "http://url/image.png",
     "summary": "Description en une phrase",
     "description": "Description",
@@ -53,19 +54,19 @@
     "more": "Informations complémentaires",
     "stand": "Emplacement",
     "category": {
-      "id": 2,
-      "name": "Industrie",
-      "color": "#e82288",
+      "id": 5,
+      "name": "Transport - Defense",
+      "color": "#100fff",
       "map_url": "http://url/image.png"
     },
-    "news": null,
+    "posts": null,
     "created_at": "2016-08-16 16:49:38",
     "updated_at": "2016-08-16 16:49:38"
   },
   {
-    "id": 1,
-    "name": "Novo Nordisk",
-    "website": "www.novonordisk.com",
+    "id": 3,
+    "name": "Novo Nordisk 3",
+    "website": "www.novonordisk3.com",
     "logo_url": "assets/img/novonordisk_logo.png",
     "summary": "Description en une phrase",
     "description": "Description",
@@ -76,16 +77,16 @@
     "stand": "Emplacement",
     "category": {
       "id": 2,
-      "name": "Industrie",
-      "color": "#e82288",
+      "name": "Industrie - Grande distribution - Agro alimentaire",
+      "color": "#f99b07",
       "map_url": "http://url/image.png"
     },
-    "news": null,
+    "posts": null,
     "created_at": "2016-08-16 16:49:38",
     "updated_at": "2016-08-16 16:49:38"
   },
   {
-    "id": 2,
+    "id": 4,
     "name": "LEROY MERLIN",
     "website": "www.leroymerlin.com",
     "logo_url": "assets/img/leroymerlin_logo(02).png",
@@ -98,16 +99,16 @@
     "stand": "Emplacement",
     "category": {
       "id": 2,
-      "name": "Industrie",
-      "color": "#e82288",
+      "name": "Industrie - Grande distribution - Agro alimentaire",
+      "color": "#f99b07",
       "map_url": "http://url/image.png"
     },
-    "news": null,
+    "posts": null,
     "created_at": "2016-08-16 16:49:38",
     "updated_at": "2016-08-16 16:49:38"
   },
   {
-    "id": 3,
+    "id": 5,
     "name": "LORIAL",
     "website": "www.lorial.com",
     "logo_url": "assets/img/lorial_logo.png",
@@ -119,17 +120,46 @@
     "more": "Informations complémentaires",
     "stand": "Emplacement",
     "category": {
-      "id": 2,
-      "name": "Industrie",
-      "color": "#e82288",
+      "id": 3,
+      "name": "Formation - Start Up",
+      "color": "#813176",
       "map_url": "http://url/image.png"
     },
-    "news": null,
+    "posts": [
+      {
+        "id": 4,
+        "type": "video",
+        "title": "Vidéo 4",
+        "description": "Découvrez l’avant première du Forum Arts & Métiers... ",
+        "youtube_id": "pFS4zYWxzNA",
+        "created_at": "2016-08-16 16:49:38",
+        "updated_at": "2016-08-16 16:49:38"
+      },
+      {
+        "id": 3,
+        "type": "article",
+        "title" : "Retour sur la 35e édition ",
+        "description" : " Renouveau pour le Forum : communication, identité visuelle... le « must have » ! ",
+        "img_url" : "http://mon/image.jpg",
+        "company" : null,
+        "created_at": "2016-08-16 16:49:38",
+        "updated_at": "2016-08-16 16:49:38"
+      },
+      {
+        "id": 5,
+        "type": "video",
+        "title" : "Vidéo 5",
+        "description" : "Découvrez l’avant première du Forum Arts & Métiers...",
+        "youtube_id" : "pFS4zYWxzNA",
+        "created_at": "2016-08-16 16:49:38",
+        "updated_at": "2016-08-16 16:49:38"
+      }
+    ],
     "created_at": "2016-08-16 16:49:38",
     "updated_at": "2016-08-16 16:49:38"
   },
   {
-    "id": 4,
+    "id": 6,
     "name": "LILLY",
     "website": "www.lilly.com",
     "logo_url": "assets/img/lilly_logo.png",
@@ -141,17 +171,17 @@
     "more": "Informations complémentaires",
     "stand": "Emplacement",
     "category": {
-      "id": 2,
-      "name": "Industrie",
-      "color": "#e82288",
+      "id": 4,
+      "name": "Energie - BTP",
+      "color": "#1b7d16",
       "map_url": "http://url/image.png"
     },
-    "news": null,
+    "posts": null,
     "created_at": "2016-08-16 16:49:38",
     "updated_at": "2016-08-16 16:49:38"
   },
   {
-    "id": 5,
+    "id": 7,
     "name": "NESTLE",
     "website": "www.nestle.com",
     "logo_url": "assets/img/nestle_logo.png",
@@ -163,12 +193,31 @@
     "more": "Informations complémentaires",
     "stand": "Emplacement",
     "category": {
-      "id": 2,
-      "name": "Industrie",
-      "color": "#e82288",
+      "id": 4,
+      "name": "Energie - BTP",
+      "color": "#1b7d16",
       "map_url": "http://url/image.png"
     },
-    "news": null,
+    "posts": [
+      {
+        "id": 6,
+        "type": "video",
+        "title" : "Vidéo 6",
+        "description" : "Découvrez l’avant première du Forum Arts & Métiers...",
+        "youtube_id" : "pFS4zYWxzNA",
+        "created_at": "2016-08-16 16:49:38",
+        "updated_at": "2016-08-16 16:49:38"
+      },
+      {
+        "id": 7,
+        "type": "video",
+        "title" : "Vidéo 7",
+        "description" : "Découvrez l’avant première du Forum Arts & Métiers...",
+        "youtube_id" : "pFS4zYWxzNA",
+        "created_at": "2016-08-16 16:49:38",
+        "updated_at": "2016-08-16 16:49:38"
+      }
+    ],
     "created_at": "2016-08-16 16:49:38",
     "updated_at": "2016-08-16 16:49:38"
   }

@@ -10,16 +10,14 @@ app.directive('exposant', function ($compile, $rootScope, $templateRequest) {
         },
         link: function (scope, element, attrs) {
         },
-        controller: function ($rootScope, $scope, $element) {
+        controller: function ($rootScope, $scope, $element,$state) {
 
             $scope.hideExposant = function () {
-                var _body = $('body');
-                var BodyScrollTop = _body.scrollTop();
-                var exposantsItems = $('.exposants_liste li a');
-                if (exposantsItems.length) {
-                    _body.removeClass('exposant_opened');
-                    $('html,body').stop().animate({ scrollTop: BodyScrollTop },300);
-                }
+                $rootScope.hideExposant();
+            };
+
+            $scope.showPost = function (id) {
+                $state.go('actualites', { id: id }, {reload: true});
             };
 
         }

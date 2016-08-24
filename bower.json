@@ -20,7 +20,8 @@
     "chosen": "~1.6.1",
     "angular-chosen-localytics": "^1.4.3",
     "angular-touch": "^1.5.8",
-    "angular-messages": "^1.5.8"
+    "angular-messages": "^1.5.8",
+    "angular-moment": "^0.10.3"
   },
   "analytics": false,
   "description": "",

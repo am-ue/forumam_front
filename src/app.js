@@ -16,6 +16,7 @@ var app = angular.module('app', ['ngResource',
     'ngTouch',
     'underscore',
     'ngMessages',
+    'angularMoment',
     'commons',
     'accueil',
     'authentification',
@@ -71,22 +72,6 @@ app.config(
                     }]
                 }
             })
-            .state('authentification', {
-                url: "/authentification",
-                templateUrl: 'src/authentification/authentification.html',
-                controller: 'authentificationController',
-                resolve: {
-                    lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
-                        return $ocLazyLoad.load({
-                            name: 'authentification',
-                            files: [
-                                'src/authentification/authentificationController.js',
-                                'src/authentification/authentificationService.js'
-                            ]
-                        });
-                    }]
-                }
-            })
             .state('login', {
                 url: "/login",
                 templateUrl: 'src/authentification/authentification.html',
@@ -135,8 +120,8 @@ app.config(
                     }]
                 }
             })
-            .state('exposants', {
-                url: "/exposants",
+            .state('listExposants', {
+                url: "/listExposants",
                 templateUrl: 'src/exposants/exposants.html',
                 controller: 'exposantsController',
                 resolve: {
@@ -151,8 +136,8 @@ app.config(
                     }]
                 }
             })
-            .state('listExposants', {
-                url: "/listExposants/{id:[0-9]*}",
+            .state('exposants', {
+                url: "/exposants/{id:[0-9]*}",
                 templateUrl: 'src/exposants/exposants.html',
                 controller: 'exposantsController',
                 resolve: {
@@ -177,7 +162,8 @@ app.config(
                             name: 'infosPratique',
                             files: [
                                 'src/infos_pratique/infosPratiqueController.js',
-                                'src/infos_pratique/infosPratiqueService.js'
+                                'src/infos_pratique/infosPratiqueService.js',
+                                'src/exposants/exposantsService.js'
                             ]
                         });
                     }]

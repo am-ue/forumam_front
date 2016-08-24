@@ -15,6 +15,13 @@
             console.log('Current route name: ' + $location.path());
             $('html,body').stop().animate({ scrollTop: 0 },600);
             $rootScope.targetUrl = $location.path().split('/')[1];
+
+            var exposants_page = angular.element(document.getElementsByClassName("page_cover"));
+            if($rootScope.targetUrl === 'exposants'){
+                exposants_page.addClass('exposants_page_cover');
+            }else{
+                exposants_page.removeClass('exposants_page_cover');
+            }
         });
 
         $scope.targetPage = function (path) {
@@ -57,6 +64,33 @@
                 menu_btn.addClass('is-active');
             }
         };
+
+        $rootScope.hideArticle = function () {
+            var cover = angular.element(document.getElementsByClassName("cover")).css('display', 'none');
+            var newsItems = $('.news_list > li > a');
+            if (newsItems.length) {
+                var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
+                articleAsidePopin.removeClass('active');
+                $rootScope.currentActualite = null;
+                return false;
+            }
+        };
+
+        $rootScope.hideExposant = function () {
+            var cover = angular.element(document.getElementsByClassName("cover")).css('display', 'none');
+            var _body = $('body');
+            var BodyScrollTop = _body.scrollTop();
+            var exposantsItems = $('.exposants_liste li a');
+            if (exposantsItems.length) {
+                _body.removeClass('exposant_opened');
+                $('html,body').stop().animate({ scrollTop: BodyScrollTop },300);
+            }
+        };
+
+        $rootScope.hideModals = function () {
+            $rootScope.hideArticle();
+            $rootScope.hideExposant();
+        }
 
 
     }

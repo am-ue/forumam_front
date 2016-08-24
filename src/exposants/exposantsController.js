@@ -28,9 +28,8 @@
             return $scope.exposant ? $scope.exposant : null;
         };
 
-        $scope.showExposant = function (index) {
-            $rootScope.currentExposant = $rootScope.exposants[index];
-            $state.go('listExposants', { id: $rootScope.currentExposant.id }, {reload: true});
+        $scope.showExposant = function (id) {
+            $state.go('exposants', { id: id }, {reload: true});
         };
 
         $rootScope.getExposantsPromise.promise.then(function () {
@@ -53,6 +52,8 @@
                 //_this.addClass('active');
 
                 $('html,body').stop().animate({scrollTop: 0}, 300);
+                // Add div for control hide modal
+                angular.element(document.getElementsByClassName("cover")).css('display', 'block');
                 return false;
             }
         });
@@ -76,6 +77,7 @@
         $scope.$watch('search', function(newValue, oldValue) {
             $rootScope.search = $scope.search;
         });
+
     }
 
 })

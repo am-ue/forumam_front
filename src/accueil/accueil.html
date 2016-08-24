@@ -61,11 +61,11 @@
                 </div>
             </div>
         </div>
-        <div class="right_parte grey_bg">
+        <div class="right_parte grey_bg" style="z-index: 100">
             <article actualite-data="currentActualite"></article>
             <ul class="news_list">
                 <li class="{{types_actualites[actualite.type].class}}"
-                    ng-repeat="(key, actualite) in actualites track by $index" ng-click="showArticle($index)">
+                    ng-repeat="(key, actualite) in actualites track by $index" ng-click="showArticle(actualite.id)">
                     <a href="">
                         <span class="news_visu">
                             <img ng-src="{{actualite.image ? actualite.image : 'assets/img/news_img01.jpg'}}"
@@ -80,7 +80,7 @@
                                 </span>
                             </h4>
                             <p>
-                                {{actualite.description}}
+                                {{actualite.description | limitTo: 100}}
                             </p>
                         </span>
                     </a>
@@ -106,7 +106,7 @@
                         euismod orci.
                     </p>
                     <p>
-                        <a href="#/exposants" class="btn purple_btn animated_btn"><span>exposants</span></a>
+                        <a href="#/listExposants" class="btn purple_btn animated_btn"><span>exposants</span></a>
                         <a href="#/biensePreparer" class="btn purple_btn animated_btn"><span>Bien se préparer</span></a>
                     </p>
                 </div>

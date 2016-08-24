@@ -1,4 +1,4 @@
-<div class="exposant_detail">
+<div class="exposant_detail" style="z-index: 100">
     <div>
         <button class="exposant_back_btn" ng-click="hideExposant()">
             <!-- <img src="img/exposant_back_icn.png" width="16" alt=""> -->
@@ -59,15 +59,15 @@
                     Stand : {{exposant.stand}} <br>
                 </div>
             </div>
-            <div ng-if="exposant.news">
+            <div ng-if="exposant.posts">
                 <h5>Publication</h5>
-                <div class="visu_img"  ng-repeat="new in exposant.news | limitTo:2">
-                    <a href="">
-                        <!--<div ng-if="new.type == 'video'" my-youtube code="new.youtube_id"></div>-->
-                        <img ng-if="new.type == 'video'"  ng-src="http://img.youtube.com/vi/{{new.youtube_id}}/hqdefault.jpg" alt="">
-                        <img ng-if="new.type == 'article'"  ng-src="{{new.img_url ? new.img_url : 'assets/img/news_img01.jpg'}}" alt="">
+                <div class="visu_img"  ng-repeat="post in exposant.posts | limitTo:2">
+                    <a href="" ng-click="showPost(post.id)">
+                        <!--<div ng-if="post.type == 'video'" my-youtube code="post.youtube_id"></div>-->
+                        <img ng-if="post.type == 'video'"  ng-src="http://img.youtube.com/vi/{{post.youtube_id}}/hqdefault.jpg" alt="">
+                        <img ng-if="post.type == 'article'"  ng-src="{{post.img_url ? post.img_url : 'assets/img/news_img01.jpg'}}" alt="">
 
-                        <span class="play_icn" ng-if="new.type == 'video'">
+                        <span class="play_icn" ng-if="post.type == 'video'">
                             <img src="assets/img/big_video_play_icn.png" alt="">
                         </span>
                     </a>

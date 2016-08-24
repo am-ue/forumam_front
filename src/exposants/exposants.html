@@ -24,7 +24,7 @@
         <div>
             <ul class="exposants_liste clearfix">
                 <li ng-repeat="exposant in exposants  | filter:search track by $index " ng-if="selectedCategory==undefined  || selectedCategory === exposant.category.id">
-                    <a href="" ng-click="showExposant($index)">
+                    <a href="" ng-click="showExposant(exposant.id)">
                                 <span class="logo_space">
                                     <img ng-src="{{ exposant.logo_url ? exposant.logo_url : 'assets/img/default_exposant_logo.png'}}"
                                          alt="">
