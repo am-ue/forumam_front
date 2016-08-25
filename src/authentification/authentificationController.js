@@ -3,21 +3,23 @@
     angular
         .module('authentification')
         .controller('authentificationController', [
-            '$rootScope', '$scope', '$location', 'authentificationService',
+            '$rootScope', '$scope', '$location', 'authentificationService','$state',
             authentificationController
         ]);
 
-    function authentificationController($rootScope, $scope, $location, authentificationService) {
-        console.log('authentificationController');
+    function authentificationController($rootScope, $scope, $location, authentificationService,$state) {
+        //console.log('authentificationController');
 
         $scope.currentPath = $location.path().split('/')[1];
         $scope.company = {};
 
         /* afficher block connexion */
         $scope.showConnexion = function (event) {
-            var _this = $(event.currentTarget);
+         /*   var _this = $(event.currentTarget);
             _this.addClass("active");
-            $scope.displayLogin();
+            $scope.displayLogin();*/
+
+            $state.go('connexion', {}, {reload: true});
         };
 
         $scope.displayLogin = function () {
@@ -32,9 +34,10 @@
 
         /* afficher block inscription */
         $scope.showInscription = function (event) {
-            var _this = $(event.currentTarget);
+          /*  var _this = $(event.currentTarget);
             _this.addClass("active");
-            $scope.displaySingup();
+            $scope.displaySingup();*/
+            $state.go('inscription', {}, {reload: true});
         };
 
         $scope.displaySingup = function () {
@@ -47,7 +50,7 @@
             return false;
         };
 
-        if ($scope.currentPath && $scope.currentPath == 'signup') {
+        if ($scope.currentPath && $scope.currentPath == 'inscription') {
             var inscriptionTitle = angular.element(document.getElementsByClassName("title_inscription"));
             inscriptionTitle.addClass("active");
             $scope.displaySingup();
@@ -75,13 +78,13 @@
             formData.append('facturation', $scope.company.facturation);
             console.log("formData", formData);
             authentificationService.signup(formData, function (res) {
-                console.log(" res", res);
+                console.log("signup result", res);
                 if (angular.isObject(res) && res.code === 200) {
                     $scope.success = res.message;
                 }
             }, function (res) {
-                console.log(" res.error", res);
-                if (angular.isObject(res.errors) && res.code === 206) {
+                console.log("signup errors", res);
+                if (angular.isObject(res.errors) && res.code === 422) {
                     $scope.formErrors = res.errors;
                 } else {
                     $scope.errors = res.errors;

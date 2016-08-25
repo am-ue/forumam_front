@@ -13,16 +13,16 @@
 
         $scope.$on('$stateChangeSuccess', function ($currentRoute, $previousRoute) {
             console.log('Current route name: ' + $location.path());
+            // Au changement de page, on scroll en haut de la page.
             $('html,body').stop().animate({scrollTop: 0}, 600);
             $rootScope.targetUrl = $location.path().split('/')[1];
-
             var _body = angular.element(document.getElementsByTagName("body"));
-            if ($rootScope.targetUrl === 'listExposants' || ($rootScope.targetUrl.indexOf('exposants') !== -1)) {
+            _body.removeClass('page_cover');
+            if ($rootScope.targetUrl === 'listeexposants' || ($rootScope.targetUrl.indexOf('exposants') !== -1)) {
                 _body.addClass('exposants_page_cover');
             } else {
                 _body.removeClass('exposants_page_cover');
                 _body.removeClass('exposant_opened');
-                _body.removeClass('page_cover');
             }
         });
 
@@ -74,8 +74,8 @@
                 var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
                 articleAsidePopin.removeClass('active');
                 $rootScope.currentActualite = null;
-                return false;
             }
+            $state.go('accueil', {}, {reload: true});
         };
 
         $rootScope.hideExposant = function () {
@@ -87,11 +87,15 @@
                 _body.removeClass('exposant_opened');
                 $('html,body').stop().animate({scrollTop: BodyScrollTop}, 300);
             }
+            $state.go('listeexposants', {}, {reload: true});
         };
 
         $rootScope.hideModals = function () {
-            $rootScope.hideArticle();
-            $rootScope.hideExposant();
+            if ($rootScope.targetUrl == 'actualites') {
+                $rootScope.hideArticle();
+            } else if ($rootScope.targetUrl == 'exposants') {
+                $rootScope.hideExposant();
+            }
         }
 
 

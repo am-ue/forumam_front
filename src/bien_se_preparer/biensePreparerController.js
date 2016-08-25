@@ -8,7 +8,7 @@
         ]);
 
     function biensePreparerController($rootScope, $scope, $location, biensePreparerService) {
-        console.log('biensePreparerController');
+        //console.log('biensePreparerController');
         $scope.presentionHeight = function () {
             var presentionBlock = angular.element(document.getElementsByClassName("presentation_area"));
             if (presentionBlock.length) {

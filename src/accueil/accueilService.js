@@ -13,7 +13,7 @@
             },
             sendEmail: function(data, success, error)  {
                 data = (typeof data === 'undefined') ? {} : data;
-                return restService.call('POST', "email/send", data).success(success).error(error);
+                return restService.call('POST', "auth/signup", data).success(success).error(error);
             }
         };
     }

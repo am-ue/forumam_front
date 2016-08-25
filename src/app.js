@@ -72,8 +72,8 @@ app.config(
                     }]
                 }
             })
-            .state('login', {
-                url: "/login",
+            .state('connexion', {
+                url: "/connexion",
                 templateUrl: 'src/authentification/authentification.html',
                 controller: 'authentificationController',
                 resolve: {
@@ -88,8 +88,8 @@ app.config(
                     }]
                 }
             })
-            .state('signup', {
-                url: "/signup",
+            .state('inscription', {
+                url: "/inscription",
                 templateUrl: 'src/authentification/authentification.html',
                 controller: 'authentificationController',
                 resolve: {
@@ -104,8 +104,8 @@ app.config(
                     }]
                 }
             })
-            .state('biensePreparer', {
-                url: "/biensePreparer",
+            .state('biensepreparer', {
+                url: "/biensepreparer",
                 templateUrl: 'src/bien_se_preparer/bien_se_preparer.html',
                 controller: 'biensePreparerController',
                 resolve: {
@@ -120,8 +120,8 @@ app.config(
                     }]
                 }
             })
-            .state('listExposants', {
-                url: "/listExposants",
+            .state('listeexposants', {
+                url: "/listeexposants",
                 templateUrl: 'src/exposants/exposants.html',
                 controller: 'exposantsController',
                 resolve: {
@@ -152,8 +152,8 @@ app.config(
                     }]
                 }
             })
-            .state('infosPratique', {
-                url: "/infosPratique",
+            .state('infospratiques', {
+                url: "/infospratiques",
                 templateUrl: 'src/infos_pratique/infos_pratique.html',
                 controller: 'infosPratiqueController',
                 resolve: {

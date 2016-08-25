@@ -8,7 +8,7 @@
         ]);
 
     function exposantsController($rootScope, $scope, $location, exposantsService, $q, $stateParams, $timeout,$state) {
-        console.log('exposantsController');
+        //console.log('exposantsController');
 
         $rootScope.getExposantsPromise = $q.defer();
         exposantsService.loadAllCompanies().success(function (data) {

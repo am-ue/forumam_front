@@ -8,7 +8,7 @@
         ]);
 
     function accueilController($rootScope, $scope, $location, accueilService, $stateParams, _, $timeout, $q, $state) {
-        console.log('accueilController');
+        //console.log('accueilController');
         var _body = angular.element(document.getElementsByTagName("body"));
         _body.addClass('page_cover');
 
@@ -239,14 +239,16 @@
             formData.append('email',  $scope.contact.email);
             formData.append('message',  $scope.contact.message);
             accueilService.sendEmail(formData, function (res) {
-                console.log(" res", res);
-                $scope.success = res.message;
+                console.log("sendEmail result", res);
+                if (angular.isObject(res) && res.code === 200) {
+                    $scope.success = res.message;
+                }
             }, function (res) {
-                console.log(" res.error", res);
-                if(!angular.isObject(res.errors)){
-                    $scope.errors = res.errors;
-                }else{
+                console.log("sendEmail errors", res);
+                if (angular.isObject(res.errors) && res.code === 422) {
                     $scope.formErrors = res.errors;
+                } else {
+                    $scope.errors = res.errors;
                 }
             })
         }

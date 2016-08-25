@@ -8,7 +8,7 @@
         ]);
 
     function infosPratiqueController($rootScope, $scope, $location, infosPratiqueService) {
-        console.log('infosPratiqueController');
+        //console.log('infosPratiqueController');
 
         $scope.planSwitcher = function(event){
             var presentionBlock = $('.plan_switcher_area > button');
