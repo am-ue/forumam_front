@@ -1,9 +1,14 @@
 ﻿var env = 'local';
-var base_url;
+var api_url;
+var admin_url;
+
+
 if (env == 'local') {
-    base_url = "./data/"
+    admin_url = "http://admin.forum.dev";
+    api_url = './data/';
 } else {
-    base_url = window.location.protocol + "://" + window.location.host + ":" + window.location.port + "/";
+    admin_url = 'http://admin.forum.dev';
+    api_url = 'http://api.forum.dev';
 }
 
 var app = angular.module('app', ['ngResource',
@@ -24,7 +29,8 @@ var app = angular.module('app', ['ngResource',
     'exposants',
     'infosPratique'
 ]).constant('urls', {
-    BASE: base_url
+    API: api_url,
+    ADMIN: admin_url
 });
 
 app.config(

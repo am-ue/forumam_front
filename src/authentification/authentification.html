@@ -36,24 +36,24 @@
                     <div data-ng-show="success" class="info_success">
                         {{success}}
                     </div>
-                    <form action="" id="espace_connexion" class="active" novalidate>
+                    <form action="{{ login_url }}" method="post" id="espace_connexion" class="active">
                         <p class="control_group">
-                            <input type="text" class="simple_field darkPurple_clr connexion_nom_utilisateur"
-                                   placeholder="Nom d’utilisateur" required>
+                            <input type="email" class="simple_field darkPurple_clr connexion_nom_utilisateur"
+                                   placeholder="Adresse email" name="email" required>
                         </p>
                         <p class="control_group">
-                            <input type="text" class="simple_field darkPurple_clr connexion_mot_pass"
-                                   placeholder="Mot de passe" required>
+                            <input type="password" class="simple_field darkPurple_clr connexion_mot_pass"
+                                   placeholder="Mot de passe" name="password" required>
                         </p>
                         <div class="align_right">
-                            <button class="btn purple_btn inverted_btn animated_btn" ng-click="signin()"><span>Se connecter</span>
+                            <button class="btn purple_btn inverted_btn animated_btn" type="submit"><span>Se connecter</span>
                             </button>
                         </div>
                         <p class="txt_oublier_pass darkPurple_clr align_center">Mot de passe oublié :
-                            <a href="#" title="Contactez-nous" class="darkPurple_clr">Contactez-nous</a>
+                            <a href="#TODO_LIEN_VERS_CONTACT" title="Contactez-nous" class="darkPurple_clr">Contactez-nous</a>
                         </p>
                         <p class="txt_inscrire_pass orange_clr align_center">Vous souhaitez vous inscrire ?
-                            <a href="#" title="Cliquez ici" class="orange_clr">Cliquezici</a>
+                            <a href="#/inscription" title="Cliquez ici" class="orange_clr">Cliquez ici</a>
                         </p>
                     </form>
                     <form id="espace_inscription" name="inscriptionForm" novalidate>

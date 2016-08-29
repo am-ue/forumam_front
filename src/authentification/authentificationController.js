@@ -3,13 +3,14 @@
     angular
         .module('authentification')
         .controller('authentificationController', [
-            '$rootScope', '$scope', '$location', 'authentificationService','$state',
+            '$rootScope', '$scope', '$location', 'authentificationService','$state', 'urls', '$sce',
             authentificationController
         ]);
 
-    function authentificationController($rootScope, $scope, $location, authentificationService,$state) {
+    function authentificationController($rootScope, $scope, $location, authentificationService, $state, urls, $sce) {
         //console.log('authentificationController');
 
+        $scope.login_url = $sce.trustAsResourceUrl(urls.ADMIN + '/login');
         $scope.currentPath = $location.path().split('/')[1];
         $scope.company = {};
 

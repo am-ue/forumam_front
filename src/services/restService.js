@@ -11,8 +11,8 @@
      * @returns {{loadAll: Function}}
      * @constructor
      */
-    function restService($q, $http, $rootScope,urls) {
-        var url = urls.BASE ;
+    function restService($q, $http, $rootScope, urls) {
+        var url = urls.API ;
         var canceler = $q.defer();
         return {
             call: function (method, serviceURI, params, config, callBackFunction) {
