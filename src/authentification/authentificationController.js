@@ -16,10 +16,6 @@
 
         /* afficher block connexion */
         $scope.showConnexion = function (event) {
-         /*   var _this = $(event.currentTarget);
-            _this.addClass("active");
-            $scope.displayLogin();*/
-
             $state.go('connexion', {}, {reload: true});
         };
 
@@ -35,9 +31,6 @@
 
         /* afficher block inscription */
         $scope.showInscription = function (event) {
-          /*  var _this = $(event.currentTarget);
-            _this.addClass("active");
-            $scope.displaySingup();*/
             $state.go('inscription', {}, {reload: true});
         };
 
@@ -66,6 +59,7 @@
         };
 
         $scope.signup = function (company) {
+            $scope.submitted = true;
             if ($scope.inscriptionForm.$invalid) {
                 return;
             }

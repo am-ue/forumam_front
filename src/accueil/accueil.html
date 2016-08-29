@@ -302,14 +302,14 @@
                     <div class="control_group">
                         <input type="text" name="name" ng-model="contact.name" class="simple_field darkPurple_clr full_size"
                                placeholder="Nom*" ng-required="true">
-                        <div ng-if="contactForm.name.$dirty" ng-messages="contactForm.name.$error" class="alert">
+                        <div ng-if="contactForm.name.$dirty || submitted" ng-messages="contactForm.name.$error" class="alert">
                             <div ng-message="required">Le champ nom est obligatoire</div>
                         </div>
                     </div>
                     <div class="control_group">
                         <input type="email" name="email" ng-model="contact.email" class="simple_field darkPurple_clr full_size"
                                placeholder="Email*" ng-required="true">
-                        <div ng-if="contactForm.email.$dirty" ng-messages="contactForm.email.$error" class="alert">
+                        <div ng-if="contactForm.email.$dirty || submitted" ng-messages="contactForm.email.$error" class="alert">
                             <div ng-message="required">Le champ email est obligatoire</div>
                             <div ng-message="email">Le champ email doit être une adresse email valide.</div>
                         </div>
@@ -320,7 +320,7 @@
                                    ng-maxlength="1000" ng-required="true">
                         </textarea>
 
-                        <div ng-if="contactForm.message.$dirty" ng-messages="contactForm.message.$error" class="alert">
+                        <div ng-if="contactForm.message.$dirty || submitted" ng-messages="contactForm.message.$error" class="alert">
                             <div ng-message="required">Le champ message est obligatoire</div>
                             <div ng-message="maxlength">Le texte de message ne peut contenir plus de 1000 caractères</div>
                         </div>

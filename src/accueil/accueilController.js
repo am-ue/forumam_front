@@ -228,7 +228,7 @@
         });
 
         $scope.sendEmail = function (contact) {
-
+            $scope.submitted = true;
             if ($scope.contactForm.$invalid) {
                 console.log($scope.contactForm.$error);
                 return;

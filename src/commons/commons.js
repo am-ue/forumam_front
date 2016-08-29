@@ -11,10 +11,18 @@
         $rootScope.selectedCategory = null;
         $rootScope.search = '';
 
-        $scope.$on('$stateChangeSuccess', function ($currentRoute, $previousRoute) {
+        $scope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
             console.log('Current route name: ' + $location.path());
+            $rootScope.previousState = from.name;
+            $rootScope.currentState = to.name;
+            //console.log('Previous state: ' + $rootScope.previousState);
+            //console.log('Current state: ' + $rootScope.currentState);
             // Au changement de page, on scroll en haut de la page.
-            $('html,body').stop().animate({scrollTop: 0}, 600);
+            if ($rootScope.previousState == 'actualites' && $rootScope.currentState == 'accueil') {
+                $('html,body').stop().animate({scrollTop: $('#news_area').offset().top - 62}, 600);
+            }else{
+                $('html,body').stop().animate({scrollTop: 0}, 600);
+            }
             $rootScope.targetUrl = $location.path().split('/')[1];
             var _body = angular.element(document.getElementsByTagName("body"));
             _body.removeClass('page_cover');

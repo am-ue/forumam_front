@@ -1,6 +1,7 @@
 <ul class="stick_nav">
     <li>
-        <a data-href="#forum_plan_area" id="target_forum_plan_area" class="active" ng-click="stickNavLinks($event)">Plan</a>
+        <a data-href="#forum_plan_area" id="target_forum_plan_area" class="active"
+           ng-click="stickNavLinks($event)">Plan</a>
     </li>
     <li>
         <a data-href="#info_pratic_area" id="target_info_pratic_area" ng-click="stickNavLinks($event)">Pratique</a>
@@ -23,19 +24,21 @@
             </div>
         </div>
         <div class="right_parte plan_switcher_area">
-            <button class="btn lightPurple_btn small_btn animated_btn active" data-target="#alpha_vision" ng-click="planSwitcher($event)"><span>vue Alphabétique</span></button>
-            <button class="btn lightPurple_btn small_btn animated_btn" data-target="#cat_vision" ng-click="planSwitcher($event)"><span>vue Par catégorie</span></button>
+            <button class="btn lightPurple_btn small_btn animated_btn active" data-target="#alpha_vision"
+                    ng-click="exposantsByAlpha($event)"><span>vue Alphabétique</span></button>
+            <button class="btn lightPurple_btn small_btn animated_btn" data-target="#cat_vision"
+                    ng-click="exposantsByCategory($event)"><span>vue Par catégorie</span></button>
         </div>
     </section>
+
     <div class="plan_switcher_content">
-        <div id="alpha_vision">
-            <img src="assets/img/alpha_vision_img.jpg" alt="">
-            <p class="align_center">
-                <a href="#" class="btn orange_btn animated_btn"><span>Télécharger en pdf</span></a>
-            </p>
+        <div class="list_exposants">
+            <ul ng-repeat="exposantView in exposantsViews">
+                <li ng-repeat="exposant in exposantView"><span style="color: {{exposant.category.color}};">{{ exposant.name }}</span></li>
+            </ul>
         </div>
-        <div id="cat_vision">
-            <img src="assets/img/cat_vision_img.jpg" alt="">
+        <div id="alpha_vision">
+            <img src="assets/img/plan.jpg" alt="">
             <p class="align_center">
                 <a href="#" class="btn orange_btn animated_btn"><span>Télécharger en pdf</span></a>
             </p>
@@ -64,7 +67,8 @@
                     <div class="app_txt">
                         <h5 class="darkPurple_clr">L’application</h5>
                         <p class="mb_40">
-                            Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises présentes, le planning des conférences, une CVthèque, ect...
+                            Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des
+                            entreprises présentes, le planning des conférences, une CVthèque, ect...
                         </p>
                         <a href="" class="orange_clr">
                             Version iOS
@@ -124,7 +128,8 @@
                 <div class="app_txt">
                     <h5 class="darkPurple_clr">L’application</h5>
                     <p class="mb_40">
-                        Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises présentes, le planning des conférences, une CVthèque, ect...
+                        Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises
+                        présentes, le planning des conférences, une CVthèque, ect...
                     </p>
                 </div>
                 <p class="app_links align_center">

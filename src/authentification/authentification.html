@@ -60,28 +60,28 @@
                         <div class="control_group">
                             <input type="text" name="name" class="simple_field darkPurple_clr full_size" ng-model="company.name"
                                    placeholder="Nom de l’entreprise*" required>
-                            <div ng-if="inscriptionForm.name.$dirty" ng-messages="inscriptionForm.name.$error" class="alert">
+                            <div ng-if="inscriptionForm.name.$dirty || submitted" ng-messages="inscriptionForm.name.$error" class="alert">
                                 <div ng-message="required">Le champ nom est obligatoire</div>
                             </div>
                         </div>
                         <div class="control_group">
                             <input type="text" name="nameRespo" class="simple_field darkPurple_clr full_size"
                                    ng-model="company.nameRespo" placeholder="Nom du responsable*" required>
-                            <div ng-if="inscriptionForm.nameRespo.$dirty" ng-messages="inscriptionForm.nameRespo.$error" class="alert">
+                            <div ng-if="inscriptionForm.nameRespo.$dirty || submitted" ng-messages="inscriptionForm.nameRespo.$error" class="alert">
                                 <div ng-message="required">Le champ nom du responsable est obligatoire</div>
                             </div>
                         </div>
                         <div class="control_group">
                             <input type="password" name="password" class="simple_field darkPurple_clr full_size"
                                    ng-model="company.password" placeholder="Mot de passe*" required>
-                            <div ng-if="inscriptionForm.password.$dirty" ng-messages="inscriptionForm.password.$error" class="alert">
+                            <div ng-if="inscriptionForm.password.$dirty || submitted" ng-messages="inscriptionForm.password.$error" class="alert">
                                 <div ng-message="required">Le champ mot de passe est obligatoire</div>
                             </div>
                         </div>
                         <div class="control_group">
                             <input type="email" name="email" class="simple_field darkPurple_clr full_size" ng-model="company.email"
                                    placeholder="Email*" required>
-                            <div ng-if="inscriptionForm.email.$dirty" ng-messages="inscriptionForm.email.$error" class="alert">
+                            <div ng-if="inscriptionForm.email.$dirty || submitted" ng-messages="inscriptionForm.email.$error" class="alert">
                                 <div ng-message="required">Le champ email est obligatoire</div>
                                 <div ng-message="email">Le champ email doit être une adresse email valide.</div>
                             </div>
@@ -89,7 +89,7 @@
                         <div class="control_group">
                             <input type="tel" name="phone" class="simple_field darkPurple_clr full_size" ng-model="company.phone"
                                    placeholder="Téléphone*" ng-pattern="/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/" required />
-                            <div ng-if="inscriptionForm.phone.$dirty" ng-messages="inscriptionForm.phone.$error" class="alert">
+                            <div ng-if="inscriptionForm.phone.$dirty || submitted" ng-messages="inscriptionForm.phone.$error" class="alert">
                                 <div ng-message="required">Le champ téléphone est obligatoire</div>
                                 <div ng-message="pattern">Le format du champ Téléphone est invalide</div>
                             </div>
@@ -102,7 +102,7 @@
                                       placeholder="Nom, téléphone, mail, adresse"  ng-maxlength="1000">
 
                             </textarea>
-                            <div ng-if="inscriptionForm.message.$dirty" ng-messages="inscriptionForm.message.$error" class="alert">
+                            <div ng-if="inscriptionForm.message.$dirty || submitted" ng-messages="inscriptionForm.message.$error" class="alert">
                                 <div ng-message="maxlength">Le texte de contact de facturation ne peut contenir plus de 1000 caractères</div>
                             </div>
                         </div>

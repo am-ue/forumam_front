@@ -851,7 +851,7 @@ body.exposants_page_cover {
     font-family: 'cabinregular', arial;
     font-size: 17px;
     padding-left: 14.35%;
-    padding-right: 22%;
+    padding-right: 18%;
     position: relative;
 }
 
@@ -1236,11 +1236,26 @@ textarea.simple_field {
 }
 
 .plan_switcher_content > div {
-    display: none;
+    /*display: none;*/
+}
+
+.list_exposants{
+    display: flex;
+    flex-direction: row;
+}
+
+.list_exposants ul{
+    flex-grow: 1;
+}
+
+.list_exposants ul li span{
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #alpha_vision {
     display: block;
+    margin-top: 20px;
 }
 
 .exposant_wrapper {
