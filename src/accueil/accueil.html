@@ -68,8 +68,9 @@
                     ng-repeat="(key, actualite) in actualites track by $index" ng-click="showArticle(actualite.id)">
                     <a href="">
                         <span class="news_visu">
-                            <img ng-src="{{actualite.image ? actualite.image : 'assets/img/news_img01.jpg'}}"
-                                 alt="">
+                            <img ng-if="actualite.type == 'video'"  ng-src="http://img.youtube.com/vi/{{actualite.youtube_id}}/hqdefault.jpg" alt="">
+                            <img ng-if="actualite.type == 'article'"  ng-src="{{actualite.img_url ? actualite.img_url : 'assets/img/news_img01.jpg'}}" alt="">
+
                         </span><!--
                         --><span class="news_resume">
                             <h4 class="news_title darkPurple_clr">

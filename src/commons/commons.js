@@ -13,18 +13,18 @@
 
         $scope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
             console.log('Current route name: ' + $location.path());
+            $rootScope.targetUrl = $location.path().split('/')[1];
+            var _body = angular.element(document.getElementsByTagName("body"));
             $rootScope.previousState = from.name;
             $rootScope.currentState = to.name;
             //console.log('Previous state: ' + $rootScope.previousState);
             //console.log('Current state: ' + $rootScope.currentState);
             // Au changement de page, on scroll en haut de la page.
             if ($rootScope.previousState == 'actualites' && $rootScope.currentState == 'accueil') {
-                $('html,body').stop().animate({scrollTop: $('#news_area').offset().top - 62}, 600);
+                $('html,body').stop().animate({scrollTop: $('#news_area').offset().top - 60}, 600);
             }else{
                 $('html,body').stop().animate({scrollTop: 0}, 600);
             }
-            $rootScope.targetUrl = $location.path().split('/')[1];
-            var _body = angular.element(document.getElementsByTagName("body"));
             _body.removeClass('page_cover');
             if ($rootScope.targetUrl === 'listeexposants' || ($rootScope.targetUrl.indexOf('exposants') !== -1)) {
                 _body.addClass('exposants_page_cover');
@@ -35,7 +35,7 @@
         });
 
         $scope.targetPage = function (path) {
-            $location.path(path);
+            $state.go(path, {target_area : ''}, {reload: true});
         };
 
         $scope.targetPageMobile = function (path) {
@@ -83,7 +83,7 @@
                 articleAsidePopin.removeClass('active');
                 $rootScope.currentActualite = null;
             }
-            $state.go('accueil', {}, {reload: true});
+            $state.go('accueil', {}, {notify: false});
         };
 
         $rootScope.hideExposant = function () {
@@ -99,9 +99,9 @@
         };
 
         $rootScope.hideModals = function () {
-            if ($rootScope.targetUrl == 'actualites') {
+            if ($rootScope.targetUrl == 'accueil' || $rootScope.targetUrl == 'actualites') {
                 $rootScope.hideArticle();
-            } else if ($rootScope.targetUrl == 'exposants') {
+            } else if ($rootScope.targetUrl == 'exposants' || $rootScope.targetUrl == 'listeexposants') {
                 $rootScope.hideExposant();
             }
         }

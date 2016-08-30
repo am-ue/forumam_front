@@ -17,8 +17,8 @@ app.directive('article', function ($compile, $rootScope, $templateRequest) {
             };
 
             $scope.goYoutube = function (youtube_id) {
-                $window.open("http://www.youtube.com/v/" + youtube_id, '_blank');
-                //$window.open("http://www.youtube.com/watch?v=" + youtube_id, '_blank');
+                //$window.open("http://www.youtube.com/v/" + youtube_id, '_blank');
+                $window.open("http://www.youtube.com/watch?v=" + youtube_id, '_blank');
             };
 
         }

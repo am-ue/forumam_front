@@ -12,8 +12,21 @@
         var _body = angular.element(document.getElementsByTagName("body"));
         _body.addClass('page_cover');
 
+        $scope.idActualite = $stateParams.id;
+        $scope.target_area = $stateParams.target_area;
         $rootScope.getActualitesPromise = $q.defer();
         $scope.contact={};
+
+        if ($scope.target_area && $scope.target_area != '') {
+            var target = $scope.target_area;
+            var _this = $('#'+target);
+            var targetLinkOffset = $(_this.attr('data-href')).offset().top - 62;
+            _this.addClass('active');
+            //console.log('targetLinkOffset ',targetLinkOffset);
+            /*$('html,body');*/
+            $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
+        }
+
         accueilService.loadAll()
             .success(function (data) {
                 $rootScope.getActualitesPromise.resolve();
@@ -24,7 +37,6 @@
                 console.error(error);
             });
 
-        $scope.idActualite = $stateParams.id;
 
         $scope.getActualite = function (idActualite) {
             $scope.actualite = {};
@@ -196,34 +208,39 @@
 
 
         $scope.showArticle = function (id) {
-            $state.go('actualites', { id: id }, {reload: true});
+            $state.go('actualites', {id: id}, {notify: false});
+            $scope.displayModalActualite(id);
+        };
+
+        $scope.displayModalActualite = function (id) {
+            // Add div for control hide modal
+            angular.element(document.getElementsByClassName("cover")).css('display', 'block');
+
+            //var target_news_area = angular.element(document.querySelector("#target_news_area"));
+            var news_list = angular.element(document.getElementsByClassName("news_list"));
+            var targetLinkOffset = $('.news_list').offset().top - 62;
+
+            //var targetLinkOffset = $(target_news_area.attr('data-href')).offset().top - 62;
+
+            //target_news_area.addClass('active');
+            $timeout(function () {
+                var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
+                articleAsidePopin.addClass('active');
+            }, 1000);
+            /*$('html,body');*/
+            $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
+
+            $rootScope.currentActualite = $scope.getActualite(id);
+            var date = $rootScope.currentActualite.created_at ? moment($rootScope.currentActualite.created_at, "YYYY-MM-DD hh:mm:ss").format("DD/MM/YY") : null;
+            $rootScope.currentActualite.datePub = angular.copy(date);
+            if ($rootScope.currentActualite.type == 'video') {
+                $rootScope.currentActualite.link_youtube = 'https://www.youtube.com/watch?v=' + $rootScope.currentActualite.youtube_id;
+            }
         };
 
         $rootScope.getActualitesPromise.promise.then(function () {
             if ($scope.idActualite && $scope.idActualite != '') {
-
-                //var target_news_area = angular.element(document.querySelector("#target_news_area"));
-                var news_list = angular.element(document.getElementsByClassName("news_list"));
-                var targetLinkOffset = $('.news_list').offset().top - 62;
-
-                //var targetLinkOffset = $(target_news_area.attr('data-href')).offset().top - 62;
-
-                //target_news_area.addClass('active');
-                $timeout(function () {
-                    var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
-                    articleAsidePopin.addClass('active');
-                }, 1000);
-                /*$('html,body');*/
-                $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
-                // Add div for control hide modal
-                angular.element(document.getElementsByClassName("cover")).css('display', 'block');
-
-                $rootScope.currentActualite = $scope.getActualite($scope.idActualite);
-                var date = $rootScope.currentActualite.created_at ? moment($rootScope.currentActualite.created_at, "YYYY-MM-DD hh:mm:ss").format("DD/MM/YY") : null;
-                $rootScope.currentActualite.datePub = angular.copy(date);
-                if ($rootScope.currentActualite.type == 'video') {
-                    $rootScope.currentActualite.link_youtube = 'https://www.youtube.com/watch?v=' + $rootScope.currentActualite.youtube_id;
-                }
+                $scope.displayModalActualite( $scope.idActualite);
             }
         });
 

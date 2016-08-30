@@ -47,7 +47,7 @@ app.config(
                 templateUrl: 'index.html'
             })
             .state('accueil', {
-                url: "/accueil",
+                url: "/accueil?target_area",
                 templateUrl: 'src/accueil/accueil.html',
                 controller: 'accueilController',
                 resolve: {
