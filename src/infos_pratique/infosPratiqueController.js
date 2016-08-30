@@ -51,8 +51,8 @@
             $scope.exposantsViews = [];
             var currentStartIndex = 0;
             for (var i = 0; i < 5; i++) {
-                $scope.exposantsViews.push(data.slice(currentStartIndex, currentStartIndex + sizeColumn + (i < reste ? 1 : 0)));
-                currentStartIndex = currentStartIndex + sizeColumn + (i < reste ? 1 : 0);
+                $scope.exposantsViews.push(data.slice(currentStartIndex, currentStartIndex + sizeColumn + (i <= reste+1 ? 1 : 0)));
+                currentStartIndex = currentStartIndex + sizeColumn + (i <= reste+1 ? 1 : 0);
             }
             return $scope.exposantsViews;
         };
