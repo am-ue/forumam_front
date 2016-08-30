@@ -15,13 +15,13 @@
         $scope.idActualite = $stateParams.id;
         $scope.target_area = $stateParams.target_area;
         $rootScope.getActualitesPromise = $q.defer();
-        $scope.contact={};
+        $scope.contact = {};
         /* Init map */
         $rootScope.loadMapPlan();
 
         if ($scope.target_area && $scope.target_area != '') {
             var target = $scope.target_area;
-            var _this = $('#'+target);
+            var _this = $('#' + target);
             var targetLinkOffset = $(_this.attr('data-href')).offset().top - 62;
             _this.addClass('active');
             //console.log('targetLinkOffset ',targetLinkOffset);
@@ -81,34 +81,35 @@
         };
 
         $scope.displayModalActualite = function (id) {
-            // Add div for control hide modal
-            angular.element(document.getElementsByClassName("cover")).css('display', 'block');
-
-            //var target_news_area = angular.element(document.querySelector("#target_news_area"));
-            var news_list = angular.element(document.getElementsByClassName("news_list"));
-            var targetLinkOffset = $('.news_list').offset().top - 62;
-
-            //var targetLinkOffset = $(target_news_area.attr('data-href')).offset().top - 62;
-
-            //target_news_area.addClass('active');
-            $timeout(function () {
-                var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
-                articleAsidePopin.addClass('active');
-            }, 1000);
-            /*$('html,body');*/
-            $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
-
             $rootScope.currentActualite = $scope.getActualite(id);
-            var date = $rootScope.currentActualite.created_at ? moment($rootScope.currentActualite.created_at, "YYYY-MM-DD hh:mm:ss").format("DD/MM/YY") : null;
-            $rootScope.currentActualite.datePub = angular.copy(date);
-            if ($rootScope.currentActualite.type == 'video') {
-                $rootScope.currentActualite.link_youtube = 'https://www.youtube.com/watch?v=' + $rootScope.currentActualite.youtube_id;
+            if ($rootScope.currentActualite) {
+                var date = $rootScope.currentActualite.created_at ? moment($rootScope.currentActualite.created_at, "YYYY-MM-DD hh:mm:ss").format("DD/MM/YY") : null;
+                $rootScope.currentActualite.datePub = angular.copy(date);
+                if ($rootScope.currentActualite.type == 'video') {
+                    $rootScope.currentActualite.link_youtube = 'https://www.youtube.com/watch?v=' + $rootScope.currentActualite.youtube_id;
+                }
+                // Add div for control hide modal
+                angular.element(document.getElementsByClassName("cover")).css('display', 'block');
+
+                //var target_news_area = angular.element(document.querySelector("#target_news_area"));
+                var news_list = angular.element(document.getElementsByClassName("news_list"));
+                var targetLinkOffset = $('.news_list').offset().top - 62;
+
+                //var targetLinkOffset = $(target_news_area.attr('data-href')).offset().top - 62;
+
+                //target_news_area.addClass('active');
+                $timeout(function () {
+                    var articleAsidePopin = angular.element(document.getElementsByClassName("article_body"));
+                    articleAsidePopin.addClass('active');
+                }, 1000);
+                /*$('html,body');*/
+                $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
             }
         };
 
         $rootScope.getActualitesPromise.promise.then(function () {
             if ($scope.idActualite && $scope.idActualite != '') {
-                $scope.displayModalActualite( $scope.idActualite);
+                $scope.displayModalActualite($scope.idActualite);
             }
         });
 
@@ -120,9 +121,9 @@
             }
             $scope.contact = contact;
             formData = new FormData();
-            formData.append('name',  $scope.contact.name);
-            formData.append('email',  $scope.contact.email);
-            formData.append('message',  $scope.contact.message);
+            formData.append('name', $scope.contact.name);
+            formData.append('email', $scope.contact.email);
+            formData.append('message', $scope.contact.message);
             accueilService.sendEmail(formData, function (res) {
                 console.log("sendEmail result", res);
                 if (angular.isObject(res) && res.code === 200) {
