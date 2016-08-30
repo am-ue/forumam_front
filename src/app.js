@@ -126,14 +126,14 @@ app.config(
                     }]
                 }
             })
-            .state('listeexposants', {
-                url: "/listeexposants",
+            .state('listeExposants', {
+                url: "/exposants",
                 templateUrl: 'src/exposants/exposants.html',
                 controller: 'exposantsController',
                 resolve: {
                     lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
-                            name: 'exposants',
+                            name: 'listeExposants',
                             files: [
                                 'src/exposants/exposantsController.js',
                                 'src/exposants/exposantsService.js'
@@ -149,7 +149,7 @@ app.config(
                 resolve: {
                     lazy: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
-                            name: 'listExposants',
+                            name: 'exposants',
                             files: [
                                 'src/exposants/exposantsController.js',
                                 'src/exposants/exposantsService.js'
