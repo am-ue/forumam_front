@@ -19,10 +19,12 @@
             {{actualite.description}}
         </p>
         <br>
-        <h4 class="darkPurple_clr">{{actualite.company.name}}</h4>
-        <br>
-        <p>
-            {{actualite.company.description}}
-        </p>
+        <div ng-click="goExposant(actualite.company.id)">
+            <h4 class="darkPurple_clr">{{actualite.company.name}}</h4>
+            <br>
+            <p>
+                {{actualite.company.summary}}
+            </p>
+        </div>
     </div>
 </div>

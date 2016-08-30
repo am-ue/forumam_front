@@ -39,7 +39,7 @@ app.config(
         $httpProvider.defaults.headers.put['Content-Type'] = undefined;
         $httpProvider.defaults.transformRequest = angular.identity;
 
-        //$urlRouterProvider.otherwise("/");
+        $urlRouterProvider.otherwise("accueil");
         $stateProvider
             .state('index', {
                 abstract: true,

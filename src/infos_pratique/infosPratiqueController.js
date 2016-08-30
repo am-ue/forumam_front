@@ -12,6 +12,9 @@
         $scope.categories = [];
         $scope.exposantsViews = [];
         $rootScope.getListExposantsPromise = $q.defer();
+        /* Init map */
+        $rootScope.loadMapPlan();
+
         $scope.planSwitcher = function (event) {
             var presentionBlock = $('.plan_switcher_area > button');
             presentionBlock.removeClass('active');

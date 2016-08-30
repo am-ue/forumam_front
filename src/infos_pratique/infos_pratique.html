@@ -34,7 +34,13 @@
     <div class="plan_switcher_content">
         <div class="list_exposants">
             <ul ng-repeat="exposantView in exposantsViews">
-                <li ng-repeat="exposant in exposantView"><span style="color: {{exposant.category.color}};">{{ exposant.name }}</span></li>
+                <li ng-repeat="exposant in exposantView">
+                    <a href="#/exposants/{{ exposant.id }}">
+                        <span style="color: {{exposant.category.color}};">
+                        {{ exposant.name }}
+                        </span>
+                    </a>
+                </li>
             </ul>
         </div>
         <div id="alpha_vision">

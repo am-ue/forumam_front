@@ -22,7 +22,7 @@
             // Au changement de page, on scroll en haut de la page.
             if ($rootScope.previousState == 'actualites' && $rootScope.currentState == 'accueil') {
                 $('html,body').stop().animate({scrollTop: $('#news_area').offset().top - 60}, 600);
-            }else{
+            } else {
                 $('html,body').stop().animate({scrollTop: 0}, 600);
             }
             _body.removeClass('page_cover');
@@ -35,7 +35,7 @@
         });
 
         $scope.targetPage = function (path) {
-            $state.go(path, {target_area : ''}, {reload: true});
+            $state.go(path, {target_area: ''}, {reload: true});
         };
 
         $scope.targetPageMobile = function (path) {
@@ -104,7 +104,137 @@
             } else if ($rootScope.targetUrl == 'exposants' || $rootScope.targetUrl == 'listeexposants') {
                 $rootScope.hideExposant();
             }
-        }
+        };
+
+        /* Load mapPlan */
+        $rootScope.loadMapPlan = function () {
+            var mapBlock = angular.element(document.querySelector('#map_plan'));
+            if (mapBlock.length && typeof google === 'object' && typeof google.maps === 'object') {
+                var myLatlng = new google.maps.LatLng(48.844559, 2.434568);
+                var styleArray =
+                    [
+                        {
+                            "featureType": "administrative.land_parcel",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.park",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.sports_complex",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "color": "#8e2862"
+                                },
+                                {
+                                    "saturation": "76"
+                                },
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "weight": "0.62"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "geometry.stroke",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                },
+                                {
+                                    "saturation": "0"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.arterial",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "color": "#f39200"
+                                },
+                                {
+                                    "weight": "0.43"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.local",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "color": "#f5f5f5"
+                                },
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "water",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "color": "#d3d3d3"
+                                }
+                            ]
+                        }
+                    ]
+                var mapOptions = {
+                    zoom: 14,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDefaultUI: true,
+                    styles: styleArray,
+                    scrollwheel: false,
+                    draggable: false
+                };
+                var map = new google.maps.Map(document.getElementById("map_plan"), mapOptions);
+
+
+                //add a custom marker to the map
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(48.836291, 2.434390),
+                    map: map,
+                    visible: true,
+                    icon: 'assets/img/default_marker.png',
+                });
+            }
+        };
+        /* End Load mapPlan */
 
 
     }
