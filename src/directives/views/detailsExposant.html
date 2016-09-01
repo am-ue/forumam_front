@@ -9,33 +9,36 @@
         <div class="exposant_content">
             <div class="exposant_globalInfos clearfix">
                 <div class="big_exposant_logo">
-                    <img ng-src="{{ exposant.logo_url ? exposant.logo_url : 'assets/img/default_exposant_logo.png'}}"
+                    <img ng-src="{{ exposant.logo_url }}"
                          alt="">
                 </div>
                 <div class="exposant_infos">
-                    <span class="article_infos orange_clr">Industrie - grande distribution - agro alimentaire</span>
+                    <span class="article_infos orange_clr">{{ exposant.category.name }}</span>
                     <h4 class="news_title darkPurple_clr mb_10">
-                        {{exposant.name}}
+                        {{ exposant.name }}
                     </h4>
-                    <a href="" class="exposant_link">{{exposant.website}}</a>
+                    <a ng-href="{{ exposant.website }}" class="exposant_link">{{ exposant.website }}</a>
                 </div>
             </div>
             <div class="exposant_content_container">
+                <p>
+                    {{ exposant.description }}
+                </p>
                 <h5 ng-if="exposant.figures">Chiffres clefs</h5>
                 <p>
-                    {{exposant.figures}}
+                    {{ exposant.figures }}
                 </p>
                 <h5 ng-if="exposant.staffing">Mode de recrutement</h5>
                 <p>
-                    {{exposant.staffing}}
+                    {{ exposant.staffing }}
                 </p>
                 <h5 ng-if="exposant.profiles">Postes et responsabilités proposés</h5>
                 <p>
-                    {{exposant.profiles}}
+                    {{ exposant.profiles }}
                 </p>
                 <h5 ng-if="exposant.more">Informations complémentaires</h5>
                 <p>
-                    {{exposant.more}}
+                    {{ exposant.more }}
                 </p>
             </div>
         </div>
@@ -44,11 +47,11 @@
                 <h5>Nous retrouver</h5>
                 <div class="visu_img">
                     <a href="#/infospratiques">
-                        <img src="assets/img/plan_vision_img.jpg" alt="">
+                        <img ng-src="{{ exposant.category.map_url }}" alt="">
                     </a>
                 </div>
                 <div>
-                    Stand : {{exposant.stand}} <br>
+                    Stand : {{ exposant.stand }} <br>
                 </div>
             </div>
             <div ng-if="exposant.posts">
