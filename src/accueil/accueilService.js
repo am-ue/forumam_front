@@ -9,7 +9,7 @@
 
         return {
             loadAll: function () {
-                return restService.call('GET', 'actualites', {});
+                return restService.call('GET', 'posts', {});
             },
             sendEmail: function(data, success, error)  {
                 data = (typeof data === 'undefined') ? {} : data;

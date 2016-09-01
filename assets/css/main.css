@@ -1269,6 +1269,7 @@ textarea.simple_field {
     max-width: 936px;
     margin: 0 auto;
     position: relative;
+    min-height: 300px;
 }
 
 .exposant_wrapper > h2 {
@@ -1594,7 +1595,7 @@ textarea.simple_field {
 .chosen-container .chosen-results {
     padding: 0;
     margin: 0;
-    height:130px;
+    max-height:200px;
     overflow-y: auto;
 }
 

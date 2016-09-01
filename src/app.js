@@ -4,11 +4,11 @@ var admin_url;
 
 
 if (env == 'local') {
-    admin_url = "http://admin.forum.dev";
+    admin_url = "http://admin.forum.dev/";
     api_url = './data/';
 } else {
-    admin_url = 'http://admin.forum.dev';
-    api_url = 'http://api.forum.dev';
+    admin_url = 'http://admin.forum.dev/';
+    api_url = 'http://api.forum.dev/';
 }
 
 var app = angular.module('app', ['ngResource',

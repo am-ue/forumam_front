@@ -81,7 +81,7 @@
                                 </span>
                             </h4>
                             <p>
-                                {{actualite.description | limitTo: 100}}
+                                {{actualite.description | limitTo: 100}}{{actualite.description.length > 100 ? ' [...]' : ''}}
                             </p>
                         </span>
                     </a>

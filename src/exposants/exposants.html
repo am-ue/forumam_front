@@ -11,22 +11,21 @@
                 <select
                         chosen
                         disable-search-threshold="10"
-                        placeholder-text-single="'Catégorie d’entreprise'"
+                        placeholder-text-single="'Domaines d’activité'"
                         no-results-text="'Aucun resultats'"
                         ng-model="selectedCategory"
                         ng-options="category.id as category.name for category in categories"
                         id="search_choices" class="styled_dropdown float_right">
-                    <option value=""></option>
                 </select>
             </div>
-            <button class="btn purple_btn inverted_btn animated_btn search_btn" ng-click="resetSearch()"><span>Effacer</span></button>
+            <button class="btn purple_btn inverted_btn animated_btn search_btn" ng-click="resetSearch()"><span>Réinitialiser</span></button>
         </div>
         <div>
             <ul class="exposants_liste clearfix">
                 <li ng-repeat="exposant in exposants  | filter:search track by $index " ng-if="selectedCategory==undefined  || selectedCategory === exposant.category.id">
                     <a href="" ng-click="showExposant(exposant.id)">
                                 <span class="logo_space">
-                                    <img ng-src="{{ exposant.logo_url ? exposant.logo_url : 'assets/img/default_exposant_logo.png'}}"
+                                    <img ng-src="{{ exposant.logo_url }}"
                                          alt="">
                                 </span>
                         <span class="exposant_title darkPurple_clr">{{exposant.name}}</span>
