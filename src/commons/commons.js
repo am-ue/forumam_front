@@ -95,7 +95,8 @@
                 _body.removeClass('exposant_opened');
                 $('html,body').stop().animate({scrollTop: BodyScrollTop}, 300);
             }
-            $state.go('listeexposants', {}, {reload: true});
+            //$state.go('listeexposants', {}, {reload: true});
+            $location.path('exposants');
         };
 
         $rootScope.hideModals = function () {
