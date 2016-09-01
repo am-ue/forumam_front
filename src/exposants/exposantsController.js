@@ -29,33 +29,38 @@
         };
 
         $scope.showExposant = function (id) {
-            $state.go('exposants', {id: id}, {reload: true});
+            $state.go('exposants', {id: id}, {notify: false});
+            $scope.displayModalExposant(id);
+        };
+
+        $scope.displayModalExposant = function (id){
+            $rootScope.currentExposant = $scope.getExposant(id);
+            if ($rootScope.currentExposant) {
+                var exposantsItems = $('.exposants_liste li a');
+                exposantsItems.removeClass('active');
+
+                $timeout(function () {
+                    var _body = angular.element(document.getElementsByTagName("body"));
+                    if (_body.hasClass('exposant_opened')) {
+                        _body.removeClass('exposant_opened')
+                    } else {
+                        _body.addClass('exposant_opened')
+                    }
+                }, 500);
+                //TODO
+                //var target_news_area = angular.element(document.querySelector("#target_news_area"));
+                //var _this = $(event.currentTarget);
+                //_this.addClass('active');
+
+                $('html,body').stop().animate({scrollTop: 0}, 300);
+                // Add div for control hide modal
+                angular.element(document.getElementsByClassName("cover")).css('display', 'block');
+            }
         };
 
         $rootScope.getExposantsPromise.promise.then(function () {
             if ($scope.idExposant && $scope.idExposant != '') {
-                $rootScope.currentExposant = $scope.getExposant($scope.idExposant);
-                if ($rootScope.currentExposant) {
-                    var exposantsItems = $('.exposants_liste li a');
-                    exposantsItems.removeClass('active');
-
-                    $timeout(function () {
-                        var _body = angular.element(document.getElementsByTagName("body"));
-                        if (_body.hasClass('exposant_opened')) {
-                            _body.removeClass('exposant_opened')
-                        } else {
-                            _body.addClass('exposant_opened')
-                        }
-                    }, 500);
-                    //TODO
-                    //var target_news_area = angular.element(document.querySelector("#target_news_area"));
-                    //var _this = $(event.currentTarget);
-                    //_this.addClass('active');
-
-                    $('html,body').stop().animate({scrollTop: 0}, 300);
-                    // Add div for control hide modal
-                    angular.element(document.getElementsByClassName("cover")).css('display', 'block');
-                }
+                $scope.displayModalExposant($scope.idExposant);
             }
         });
 
