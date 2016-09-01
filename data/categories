@@ -1,11 +1,5 @@
 [
   {
-    "id": null,
-    "name": "All",
-    "color": "#e82288",
-    "map_url": "http://url/image.png"
-  },
-  {
     "id": 1,
     "name": "Conseil - Finance - Services",
     "color": "#a10011",

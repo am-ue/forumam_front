@@ -61,6 +61,10 @@
 
         exposantsService.loadAllCategories().success(function (data) {
                 $scope.categories = data;
+                $scope.categories.unshift({
+                    "id": null,
+                    "name":"All"
+                });
             })
             .error(function (error) {
                 console.error(error);
