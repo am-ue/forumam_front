@@ -35,10 +35,12 @@
         });
 
         $scope.targetPage = function (path) {
+            angular.element(document.getElementsByClassName("cover")).css('display', 'none');
             $state.go(path, {target_area: ''}, {reload: true});
         };
 
         $scope.targetPageMobile = function (path) {
+            angular.element(document.getElementsByClassName("cover")).css('display', 'none');
             $scope.targetPage(path);
             $scope.menuBtn();
         };
