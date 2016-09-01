@@ -3,11 +3,11 @@
     angular
         .module('infosPratique')
         .controller('infosPratiqueController', [
-            '$rootScope', '$scope', '$location','$q', 'infosPratiqueService', 'exposantsService',
+            '$rootScope', '$scope', '$q', 'exposantsService',
             infosPratiqueController
         ]);
 
-    function infosPratiqueController($rootScope, $scope, $location,$q, infosPratiqueService, exposantsService) {
+    function infosPratiqueController($rootScope, $scope, $q, exposantsService) {
         console.log('infosPratiqueController');
         $scope.categories = [];
         $scope.exposantsViews = [];
@@ -51,8 +51,8 @@
             $scope.exposantsViews = [];
             var currentStartIndex = 0;
             for (var i = 0; i < 5; i++) {
-                $scope.exposantsViews.push(data.slice(currentStartIndex, currentStartIndex + sizeColumn + (i <= reste+1 ? 1 : 0)));
-                currentStartIndex = currentStartIndex + sizeColumn + (i <= reste+1 ? 1 : 0);
+                $scope.exposantsViews.push(data.slice(currentStartIndex, currentStartIndex + sizeColumn + (i <= reste + 1 ? 1 : 0)));
+                currentStartIndex = currentStartIndex + sizeColumn + (i <= reste + 1 ? 1 : 0);
             }
             return $scope.exposantsViews;
         };
@@ -60,16 +60,20 @@
         $rootScope.getListExposantsPromise.promise.then(function () {
             $scope.exposantsByAlpha($scope.exposants);
         });
-
-        exposantsService.loadAllCompanies().success(function (data) {
-                //data =data.concat(data);
-                $scope.exposants = data;
-                $rootScope.getListExposantsPromise.resolve();
-            })
-            .error(function (error) {
-                $rootScope.getListExposantsPromise.resolve();
-                console.error(error);
-            });
+        if (!$rootScope.exposants || $rootScope.exposants.length < 0) {
+            exposantsService.loadAllCompanies().success(function (data) {
+                    $rootScope.exposants = angular.copy(data);
+                    $scope.exposants = angular.copy(data);
+                    $rootScope.getListExposantsPromise.resolve();
+                })
+                .error(function (error) {
+                    $rootScope.getListExposantsPromise.resolve();
+                    console.error(error);
+                });
+        } else {
+            $scope.exposants =angular.copy($rootScope.exposants);
+            $scope.exposantsByAlpha($scope.exposants);
+        }
 
     }
 

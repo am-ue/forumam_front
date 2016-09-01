@@ -28,17 +28,17 @@
             /*$('html,body');*/
             $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
         }
-
-        accueilService.loadAll()
-            .success(function (data) {
-                $rootScope.getActualitesPromise.resolve();
-                $rootScope.actualites = data;
-            })
-            .error(function (error) {
-                $rootScope.getActualitesPromise.resolve();
-                console.error(error);
-            });
-
+        if (!$rootScope.actualites || $rootScope.actualites.length < 0) {
+            accueilService.loadAll()
+                .success(function (data) {
+                    $rootScope.getActualitesPromise.resolve();
+                    $rootScope.actualites = data;
+                })
+                .error(function (error) {
+                    $rootScope.getActualitesPromise.resolve();
+                    console.error(error);
+                });
+        }
 
         $scope.getActualite = function (idActualite) {
             $scope.actualite = {};

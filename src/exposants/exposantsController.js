@@ -9,14 +9,29 @@
 
     function exposantsController($rootScope, $scope, $location, exposantsService, $q, $stateParams, $timeout, $state) {
         $rootScope.getExposantsPromise = $q.defer();
-        exposantsService.loadAllCompanies().success(function (data) {
-                $rootScope.getExposantsPromise.resolve();
-                $rootScope.exposants = data;
-            })
-            .error(function (error) {
-                $rootScope.getExposantsPromise.resolve();
-                console.error(error);
-            });
+        if (!$rootScope.exposants || $rootScope.exposants.length < 0) {
+            exposantsService.loadAllCompanies().success(function (data) {
+                    $rootScope.getExposantsPromise.resolve();
+                    $rootScope.exposants = data;
+                })
+                .error(function (error) {
+                    $rootScope.getExposantsPromise.resolve();
+                    console.error(error);
+                });
+        }
+
+        if (!$rootScope.categories || $rootScope.categories.length < 0) {
+            exposantsService.loadAllCategories().success(function (data) {
+                    $rootScope.categories = data;
+                    $rootScope.categories.unshift({
+                        "id": null,
+                        "name": "Domaines d’activité"
+                    });
+                })
+                .error(function (error) {
+                    console.error(error);
+                });
+        }
 
         $scope.idExposant = $stateParams.id;
 
@@ -57,17 +72,6 @@
                 $scope.displayModalExposant($scope.idExposant);
             }
         });
-
-        exposantsService.loadAllCategories().success(function (data) {
-                $scope.categories = data;
-                $scope.categories.unshift({
-                    "id": null,
-                    "name":"Domaines d’activité"
-                });
-            })
-            .error(function (error) {
-                console.error(error);
-            });
 
         $scope.resetSearch = function () {
             $scope.selectedCategory = null;
