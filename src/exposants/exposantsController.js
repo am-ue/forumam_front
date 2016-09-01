@@ -8,8 +8,6 @@
         ]);
 
     function exposantsController($rootScope, $scope, $location, exposantsService, $q, $stateParams, $timeout, $state) {
-        //console.log('exposantsController');
-
         $rootScope.getExposantsPromise = $q.defer();
         exposantsService.loadAllCompanies().success(function (data) {
                 $rootScope.getExposantsPromise.resolve();
@@ -33,7 +31,7 @@
             $scope.displayModalExposant(id);
         };
 
-        $scope.displayModalExposant = function (id){
+        $scope.displayModalExposant = function (id) {
             $rootScope.currentExposant = $scope.getExposant(id);
             if ($rootScope.currentExposant) {
                 var exposantsItems = $('.exposants_liste li a');
@@ -47,10 +45,6 @@
                         _body.addClass('exposant_opened')
                     }
                 }, 500);
-                //TODO
-                //var target_news_area = angular.element(document.querySelector("#target_news_area"));
-                //var _this = $(event.currentTarget);
-                //_this.addClass('active');
 
                 $('html,body').stop().animate({scrollTop: 0}, 300);
                 // Add div for control hide modal
@@ -68,7 +62,7 @@
                 $scope.categories = data;
                 $scope.categories.unshift({
                     "id": null,
-                    "name":"All"
+                    "name":"Domaines d’activité"
                 });
             })
             .error(function (error) {

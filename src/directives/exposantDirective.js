@@ -17,7 +17,7 @@ app.directive('exposant', function ($compile, $rootScope, $templateRequest) {
             };
 
             $scope.showPost = function (id) {
-                $state.go('actualites', { id: id }, {reload: true});
+                $state.go('actualites', { id: id });
             };
 
         }
