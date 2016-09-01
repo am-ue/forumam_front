@@ -939,7 +939,7 @@ body.exposants_page_cover {
 .news_list li a .news_resume {
     display: inline-block;
     *zoom: 1;
-    width: 350px;
+    /*width: 350px;*/
     max-width: 57%;
     padding-left: 3.6%;
     vertical-align: middle;
