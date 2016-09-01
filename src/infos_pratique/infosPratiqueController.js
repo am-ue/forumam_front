@@ -19,13 +19,15 @@
             var presentionBlock = $('.plan_switcher_area > button');
             presentionBlock.removeClass('active');
             var _this = $(event.currentTarget);
-            //_this.addClass('active');
+            _this.addClass('active');
             //$('.plan_switcher_content > div').hide();
             $(_this.attr('data-target')).show()
         };
 
         $scope.exposantsByAlpha = function (event) {
-            $scope.planSwitcher(event);
+            if (event) {
+                $scope.planSwitcher(event);
+            }
             $scope.exposants = $scope.exposants.sort(function (a, b) {
                 if (a.name < b.name) return -1;
                 if (a.name > b.name) return 1;
@@ -41,7 +43,6 @@
                 if (a.category.id > b.category.id) return 1;
                 return 0;
             });
-
             $scope.getListViews($scope.exposants);
         };
 
@@ -58,8 +59,9 @@
         };
 
         $rootScope.getListExposantsPromise.promise.then(function () {
-            $scope.exposantsByAlpha($scope.exposants);
+            $scope.exposantsByAlpha();
         });
+
         if (!$rootScope.exposants || $rootScope.exposants.length < 0) {
             exposantsService.loadAllCompanies().success(function (data) {
                     $rootScope.exposants = angular.copy(data);
@@ -72,7 +74,7 @@
                 });
         } else {
             $scope.exposants =angular.copy($rootScope.exposants);
-            $scope.exposantsByAlpha($scope.exposants);
+            $scope.exposantsByAlpha();
         }
 
     }
