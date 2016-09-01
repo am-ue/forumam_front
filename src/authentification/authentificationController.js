@@ -3,16 +3,24 @@
     angular
         .module('authentification')
         .controller('authentificationController', [
-            '$rootScope', '$scope', '$location', 'authentificationService','$state', 'urls', '$sce',
+            '$rootScope', '$scope', '$location', 'authentificationService','$state', 'urls', '$sce', '$window',
             authentificationController
         ]);
 
-    function authentificationController($rootScope, $scope, $location, authentificationService, $state, urls, $sce) {
+    function authentificationController($rootScope, $scope, $location, authentificationService, $state, urls, $sce,$window) {
         //console.log('authentificationController');
 
         $scope.login_url = $sce.trustAsResourceUrl(urls.ADMIN + '/login');
         $scope.currentPath = $location.path().split('/')[1];
         $scope.company = {};
+       /* Footer qui remonte lorsque l'écran est grand */
+        var height_windowElement = angular.element($window).height() ;
+        var connexion_area = angular.element(document.querySelector("#conexion_area"));
+        var height_header = angular.element(document.getElementsByClassName("main_head")).height();
+        var height_footer = angular.element(document.getElementsByClassName("main_footer")).height();
+        var height_connexion_area = height_windowElement - (height_header + height_footer);
+        connexion_area[0].style.height = height_connexion_area + 'px';
+        /* fin traitement footer */
 
         /* afficher block connexion */
         $scope.showConnexion = function (event) {
