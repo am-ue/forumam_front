@@ -6,9 +6,15 @@ var admin_url;
 if (env == 'local') {
     admin_url = "http://admin.forum.dev/";
     api_url = './data/';
-} else {
+} else if (env == 'test') {
     admin_url = 'http://admin.forum.dev/';
     api_url = 'http://api.forum.dev/';
+} else if (env == 'pprod') {
+    admin_url = 'http://admin.forum-am.neoxia-forge.com/';
+    api_url = 'http://admin.forum-am.neoxia-forge.com/';
+} else {
+    admin_url = 'http://admin.forum-am.fr/';
+    api_url = 'http://api.forum-am.fr/';
 }
 
 var app = angular.module('app', ['ngResource',
