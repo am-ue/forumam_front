@@ -16,8 +16,8 @@
        /* Footer qui remonte lorsque l'écran est grand */
         var height_windowElement = angular.element($window).height() ;
         var connexion_area = angular.element(document.querySelector("#conexion_area"));
-        var height_header = angular.element(document.getElementsByClassName("main_head")).height();
-        var height_footer = angular.element(document.getElementsByClassName("main_footer")).height();
+        var height_header = angular.element(document.getElementsByClassName("main_head")).outerHeight();
+        var height_footer = angular.element(document.getElementsByClassName("main_footer")).outerHeight();
         var height_connexion_area = height_windowElement - (height_header + height_footer);
         connexion_area[0].style.height = height_connexion_area + 'px';
         /* fin traitement footer */
