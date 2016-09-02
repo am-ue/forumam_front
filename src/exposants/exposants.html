@@ -22,14 +22,14 @@
         </div>
         <div>
             <ul class="exposants_liste clearfix">
-                <li ng-repeat="exposant in exposants  | filter:search track by $index " ng-if="selectedCategory==undefined  || selectedCategory === exposant.category.id">
+                <li ng-repeat="exposant in exposants  | filter:search track by $index " ng-if="selectedCategory==undefined  || selectedCategory === exposant.category.id" ng-style="(exposant.name.length > 15) && {'line-height': '22px'}">
                     <a href="" ng-click="showExposant(exposant.id)">
                                 <span class="logo_space">
                                     <img ng-src="{{ exposant.logo_url }}"
                                          alt="">
                                 </span>
-                        <span class="exposant_title darkPurple_clr">{{exposant.name}}</span>
-                        <span class="exposant_disc">{{exposant.summary}}</span>
+                        <span class="exposant_title darkPurple_clr" ng-style="(exposant.name.length > 20) && {'font-size': '20px'}">{{ exposant.name }}</span>
+                        <span class="exposant_disc">{{ exposant.summary | limitTo: 60 }}{{exposant.summary.length > 60 ? '...' : ''}}</span>
                     </a>
                 </li>
             </ul>
