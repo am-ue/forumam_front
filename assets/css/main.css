@@ -70,7 +70,7 @@ img {
     max-width: 100%;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -1243,16 +1243,16 @@ textarea.simple_field {
     /*display: none;*/
 }
 
-.list_exposants{
+.list_exposants {
     display: flex;
     flex-direction: row;
 }
 
-.list_exposants ul{
+.list_exposants ul {
     flex-grow: 1;
 }
 
-.list_exposants ul li span{
+.list_exposants ul li span {
     font-size: 12px;
     font-weight: bold;
 }
@@ -1595,7 +1595,7 @@ textarea.simple_field {
 .chosen-container .chosen-results {
     padding: 0;
     margin: 0;
-    max-height:200px;
+    max-height: 200px;
     overflow-y: auto;
 }
 
@@ -2651,6 +2651,10 @@ h3.lien_connexion a {
         height: 105px;
         left: -38px;
         top: -35px;
+    }
+
+    #conexion_area {
+        height: auto !important;
     }
 }
 
