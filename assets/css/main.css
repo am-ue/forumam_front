@@ -1353,6 +1353,11 @@ textarea.simple_field {
     -moz-border-radius: 100%;
     border-radius: 100%;
     float: left;
+    overflow: hidden;
+}
+
+.big_exposant_logo img {
+    max-width: 75%;
 }
 
 .exposant_infos {
@@ -1496,6 +1501,7 @@ textarea.simple_field {
     line-height: 110px;
     margin-bottom: 12px;
     text-align: center;
+    overflow: hidden;
 }
 
 .exposants_liste li a .logo_space img {
