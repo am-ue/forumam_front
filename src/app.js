@@ -11,7 +11,7 @@ if (env == 'local') {
     api_url = 'http://api.forum.dev/';
 } else if (env == 'pprod') {
     admin_url = 'http://admin.forum-am.neoxia-forge.com/';
-    api_url = 'http://admin.forum-am.neoxia-forge.com/';
+    api_url = 'http://api.forum-am.neoxia-forge.com/';
 } else {
     admin_url = 'http://admin.forum-am.fr/';
     api_url = 'http://api.forum-am.fr/';
