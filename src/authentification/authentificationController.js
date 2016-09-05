@@ -68,9 +68,9 @@
         };
 
         $scope.signup = function (company, user) {
-            $scope.formErrors = {};
-            $scope.errors = {};
-            $scope.success = {};
+            $scope.formErrors = undefined;
+            $scope.errors = undefined;
+            $scope.success = undefined;
 
             $scope.submitted = true;
             if ($scope.inscriptionForm.$invalid) {
