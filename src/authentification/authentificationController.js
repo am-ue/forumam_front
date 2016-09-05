@@ -13,6 +13,7 @@
         $scope.login_url = $sce.trustAsResourceUrl(urls.ADMIN + '/login');
         $scope.currentPath = $location.path().split('/')[1];
         $scope.company = {};
+        $scope.user = {};
        /* Footer qui remonte lorsque l'écran est grand */
         var height_windowElement = angular.element($window).height() ;
         var connexion_area = angular.element(document.querySelector("#conexion_area"));
@@ -42,7 +43,7 @@
             $state.go('inscription', {}, {reload: true});
         };
 
-        $scope.displaySingup = function () {
+        $scope.displaySignup = function () {
             var connexionTitle = angular.element(document.getElementsByClassName("title_connexion"));
             connexionTitle.removeClass("active");
             var espace_inscription = angular.element(document.querySelector("#espace_inscription"));
@@ -55,7 +56,7 @@
         if ($scope.currentPath && $scope.currentPath == 'inscription') {
             var inscriptionTitle = angular.element(document.getElementsByClassName("title_inscription"));
             inscriptionTitle.addClass("active");
-            $scope.displaySingup();
+            $scope.displaySignup();
         } else {
             var connexionTitle = angular.element(document.getElementsByClassName("title_connexion"));
             connexionTitle.addClass("active");
@@ -66,19 +67,26 @@
 
         };
 
-        $scope.signup = function (company) {
+        $scope.signup = function (company, user) {
+            $scope.formErrors = {};
+            $scope.errors = {};
+            $scope.success = {};
+
             $scope.submitted = true;
             if ($scope.inscriptionForm.$invalid) {
                 return;
             }
             $scope.company = company;
             formData = new FormData();
-            formData.append('name', $scope.company.name);
-            formData.append('nameRespo', $scope.company.nameRespo);
-            formData.append('password', $scope.company.password);
-            formData.append('email', $scope.company.email);
-            formData.append('phone', $scope.company.phone);
-            formData.append('facturation', $scope.company.facturation);
+            formData.append('company[name]', $scope.company.name);
+            formData.append('company[website]', $scope.company.website);
+            formData.append('company[summary]', $scope.company.summary);
+            formData.append('user[first_name]', $scope.user.first_name);
+            formData.append('user[last_name]', $scope.user.last_name);
+            formData.append('user[phone]', $scope.user.phone);
+            formData.append('user[email]', $scope.user.email);
+            formData.append('user[password]', $scope.user.password);
+            formData.append('user[password_confirmation]', $scope.user.password_confirmation);
             console.log("formData", formData);
             authentificationService.signup(formData, function (res) {
                 console.log("signup result", res);
@@ -89,6 +97,7 @@
                 console.log("signup errors", res);
                 if (angular.isObject(res.errors) && res.code === 422) {
                     $scope.formErrors = res.errors;
+                    console.log('$scope.formErrors', $scope.formErrors);
                 } else {
                     $scope.errors = res.errors;
                 }

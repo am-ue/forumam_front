@@ -2056,6 +2056,7 @@ h3.lien_connexion a {
 
 #espace_inscription {
     display: none;
+    margin-top: -180px;
 }
 
 #espace_inscription button {
@@ -2195,6 +2196,14 @@ h3.lien_connexion a {
 
 .alert {
     color: red;
+}
+
+.alert .errors ul {
+    padding-left: 35px;
+}
+
+.alert .errors li {
+    list-style: initial;
 }
 
 .info_success {
