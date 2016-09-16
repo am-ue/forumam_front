@@ -302,7 +302,8 @@ body.exposants_page_cover {
     right: 26px;
     top: 0;
     padding: 20px 25px 27px 25px;
-    background: #f39200;
+    background-image: url("../img/fond_entreprise.png");
+    background-size: 100% 100%;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -322,7 +323,7 @@ body.exposants_page_cover {
 }
 
 .entreprise_space_link:hover, .entreprise_space_link.active {
-    background: #df7402;
+    /*background: #df7402;*/
     padding-top: 23px;
 }
 

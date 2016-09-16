@@ -1,4 +1,4 @@
-﻿var env = 'local';
+﻿var env = 'prod';
 var api_url;
 var admin_url;
 
@@ -13,7 +13,7 @@ if (env == 'local') {
     admin_url = 'http://admin.forum-am.neoxia-forge.com/';
     api_url = 'http://api.forum-am.neoxia-forge.com/';
 } else {
-    admin_url = 'http://admin.forum-am.fr/';
+    admin_url = 'http://private.forum-am.fr/';
     api_url = 'http://api.forum-am.fr/';
 }
 

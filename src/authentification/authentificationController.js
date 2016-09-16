@@ -10,7 +10,8 @@
     function authentificationController($rootScope, $scope, $location, authentificationService, $state, urls, $sce,$window) {
         //console.log('authentificationController');
 
-        $scope.login_url = $sce.trustAsResourceUrl(urls.ADMIN + '/login');
+        $scope.login_url = $sce.trustAsResourceUrl(urls.ADMIN + 'login');
+        $scope.password_url = $sce.trustAsResourceUrl(urls.ADMIN + 'password/reset');
         $scope.currentPath = $location.path().split('/')[1];
         $scope.company = {};
         $scope.user = {};
@@ -63,9 +64,6 @@
             $scope.displayLogin();
         }
 
-        $scope.signin = function () {
-
-        };
 
         $scope.signup = function (company, user) {
             $scope.formErrors = undefined;

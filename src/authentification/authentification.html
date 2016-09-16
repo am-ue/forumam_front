@@ -8,18 +8,21 @@
                        ng-click="showConnexion($event)">
                         Connexion
                     </a>
-                    <a href="" title="Connexion" class="title_inscription small_title_parte"
-                       ng-click="showInscription($event)">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdifLTvEuBX4Uk0eWx_FChgLuA6Hn4IntijnNjqhZmdwwE0jA/viewform" title="Inscription" class="title_inscription small_title_parte">
                         Inscription
                     </a>
+                    <!--<a href="" title="Inscription" class="title_inscription small_title_parte"
+                       ng-click="showInscription($event)">
+                        Inscription
+                    </a>-->
                 </h3>
                 <div class="block_content txt_connexion align_center">
                     <p class="mb_15">
-                        Toutes les informations relatives à votre participation au Forum Arts & Métiers sont disponibles
-                        ici
+                        Toutes les informations relatives à votre participation <br> au Forum Arts & Métiers  sont disponibles
+                        ici :
                     </p>
                     <p>
-                        <a href="" class="btn orange_btn animated_btn"><span>Télécharger en pdf</span></a>
+                        <a href="/assets/Plaquette2017.pdf" class="btn orange_btn animated_btn"><span>Télécharger la plaquette</span></a>
                     </p>
                 </div>
             </div>
@@ -41,15 +44,12 @@
                                 <span>Se connecter</span>
                             </button>
                         </div>
-                        <p class="txt_oublier_pass darkPurple_clr align_center">Mot de passe oublié :
-                            <a ui-sref="accueil({ target_area: 'target_contact_area'})" title="Contactez-nous"
-                               class="darkPurple_clr">Contactez-nous</a>
-                        </p>
+                        <a ng-href="{{password_url}}" class="txt_oublier_pass darkPurple_clr align_center">Mot de passe oublié</a>
                         <p class="txt_inscrire_pass orange_clr align_center">Vous souhaitez vous inscrire ?
-                            <a href="#/inscription" title="Cliquez ici" class="orange_clr">Cliquez ici</a>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdifLTvEuBX4Uk0eWx_FChgLuA6Hn4IntijnNjqhZmdwwE0jA/viewform" title="Cliquez ici" class="orange_clr">Cliquez ici</a>
                         </p>
                     </form>
-                    <form id="espace_inscription" name="inscriptionForm" novalidate>
+                    <!--<form id="espace_inscription" name="inscriptionForm" novalidate>
                         <div class="control_group">
                             <input type="text" name="companyName" class="simple_field darkPurple_clr full_size"
                                    ng-model="company.name"
@@ -150,7 +150,7 @@
                                 <span>S’inscrire</span>
                             </button>
                         </div>
-                    </form>
+                    </form>-->
                 </div>
             </div>
         </div>
