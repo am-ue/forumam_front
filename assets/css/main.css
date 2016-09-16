@@ -691,11 +691,12 @@ body.exposants_page_cover {
 }
 
 .presentation_txt .event_date {
-    font-family: 'cabinregular', arial;
+    font-family: 'cabinregular', arial, sans-serif;
     float: left;
     display: inline-block;
     *zoom: 1;
     padding-right: 15px;
+    text-align: center;
 }
 
 .presentation_txt .event_place {

@@ -30,9 +30,9 @@
                 </div>
                 <div class="event_infos clearfix">
                     <div class="event_date">
-                        <span class="white_clr day_info">30</span>
-                        <span class="white_clr month_info">Mars</span>
-                        <span class="white_clr year_info">2016</span>
+                        <span class="white_clr day_info">04</span>
+                        <span class="white_clr month_info">Janv</span>
+                        <span class="white_clr year_info">2017</span>
                     </div>
                     <div class="event_place">
                         <span class="purple_clr time_info">9h à 18h</span>
@@ -42,10 +42,10 @@
                 </div>
             </div>
         </div>
-        <p class="trailer_area align_center">
+        <!--<p class="trailer_area align_center">
             <button class="btn big_btn purple_btn animated_btn inverted_btn shadow_btn">
                 <span>Voir le trailer du forum</span></button>
-        </p>
+        </p>-->
         <a data-href="#news_area" class="scroll_btm" ng-click="scroll_btm($event)">&nbsp;</a>
     </section>
     <section id="news_area" class="sections_area news_area clearfix">
@@ -304,14 +304,14 @@
                         <input type="text" name="name" ng-model="contact.name" class="simple_field darkPurple_clr full_size"
                                placeholder="Nom*" ng-required="true">
                         <div ng-if="contactForm.name.$dirty || submitted" ng-messages="contactForm.name.$error" class="alert">
-                            <div ng-message="required">Le champ nom est obligatoire</div>
+                            <div ng-message="required">Le champ nom est obligatoire.</div>
                         </div>
                     </div>
                     <div class="control_group">
                         <input type="email" name="email" ng-model="contact.email" class="simple_field darkPurple_clr full_size"
                                placeholder="Email*" ng-required="true">
                         <div ng-if="contactForm.email.$dirty || submitted" ng-messages="contactForm.email.$error" class="alert">
-                            <div ng-message="required">Le champ email est obligatoire</div>
+                            <div ng-message="required">Le champ email est obligatoire.</div>
                             <div ng-message="email">Le champ email doit être une adresse email valide.</div>
                         </div>
                     </div>
@@ -322,9 +322,13 @@
                         </textarea>
 
                         <div ng-if="contactForm.message.$dirty || submitted" ng-messages="contactForm.message.$error" class="alert">
-                            <div ng-message="required">Le champ message est obligatoire</div>
-                            <div ng-message="maxlength">Le texte de message ne peut contenir plus de 1000 caractères</div>
+                            <div ng-message="required">Le champ message est obligatoire.</div>
+                            <div ng-message="maxlength">Le texte de message ne peut contenir plus de 1000 caractères.</div>
                         </div>
+                    </div>
+                    <div vc-recaptcha key="'6LfxEioTAAAAAP9N1VWdWfZNntZsN0hN3GeTYzwK'"></div>
+                    <div ng-if="submitted && contactForm.$error.recaptcha" class="alert">
+                        <div>Merci de valider la question anti-robot.</div>
                     </div>
                     <div class="align_right">
                         <button type="submit" ng-click="sendEmail(contact)"

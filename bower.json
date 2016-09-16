@@ -21,7 +21,8 @@
     "angular-chosen-localytics": "^1.4.3",
     "angular-touch": "^1.5.8",
     "angular-messages": "^1.5.8",
-    "angular-moment": "^0.10.3"
+    "angular-moment": "^0.10.3",
+    "angular-recaptcha": "^3.0.4"
   },
   "analytics": false,
   "description": "",
