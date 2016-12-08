@@ -13,8 +13,8 @@ if (env == 'local') {
     admin_url = 'http://admin.forum-am.neoxia-forge.com/';
     api_url = 'http://api.forum-am.neoxia-forge.com/';
 } else {
-    admin_url = 'http://private.forum-am.fr/';
-    api_url = 'http://api.forum-am.fr/';
+    admin_url = 'https://admin.forum-am.fr/';
+    api_url = 'https://api.forum-am.fr/';
 }
 
 var app = angular.module('app', ['ngResource',
