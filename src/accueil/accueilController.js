@@ -124,6 +124,10 @@
             formData.append('name', $scope.contact.name);
             formData.append('email', $scope.contact.email);
             formData.append('message', $scope.contact.message);
+            $scope.success = undefined;
+            $scope.formErrors = undefined;
+            $scope.errors = undefined;
+
             accueilService.sendEmail(formData, function (res) {
                 console.log("sendEmail result", res);
                 if (angular.isObject(res) && res.code === 200) {

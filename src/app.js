@@ -4,14 +4,8 @@ var admin_url;
 
 
 if (env == 'local') {
-    admin_url = "http://admin.forum.dev/";
-    api_url = './data/';
-} else if (env == 'test') {
     admin_url = 'http://admin.forum.dev/';
     api_url = 'http://api.forum.dev/';
-} else if (env == 'pprod') {
-    admin_url = 'http://admin.forum-am.neoxia-forge.com/';
-    api_url = 'http://api.forum-am.neoxia-forge.com/';
 } else {
     admin_url = 'https://admin.forum-am.fr/';
     api_url = 'https://api.forum-am.fr/';
