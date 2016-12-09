@@ -2,12 +2,15 @@
     'use strict';
 
     angular.module('biensePreparer')
-        .service('biensePreparerService', ['$http', biensePreparerService]);
+        .service('biensePreparerService', ['restService', biensePreparerService]);
 
+    function biensePreparerService(restService) {
 
-    function biensePreparerService($http) {
-
-        return {};
+        return {
+            loadConfigVariables: function () {
+                return restService.call('GET', 'config-variables', {});
+            }
+        };
     }
 
 })();

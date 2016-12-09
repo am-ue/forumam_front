@@ -483,6 +483,7 @@ body.exposants_page_cover {
     background-image: url('../img/mobile_linkdin_link.png');
     background-size: 17px;
 }
+
 .mobile_social_links li a.yt_link {
     background-image: url('../img/yt_link.png');
     background-size: 17px;
@@ -526,6 +527,7 @@ body.exposants_page_cover {
     background-size: 12px;
     background-position: 16px 50%;
 }
+
 .social_links li a.yt_link {
     background-image: url('../img/yt_link.png');
     background-size: 23px;
@@ -633,6 +635,12 @@ body.exposants_page_cover {
     -o-transform: translate(-50%);
     -ms-transform: translate(-50%);
     transform: translate(-50%);
+    height: 50%;
+    text-align: center;
+}
+
+.presentation_txt_area img {
+    max-height: 100%;
 }
 
 .favicon_container {
@@ -990,6 +998,7 @@ body.exposants_page_cover {
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    overflow: scroll;
 }
 
 .article_body.active {
@@ -1182,6 +1191,10 @@ body.exposants_page_cover {
     vertical-align: middle;
     text-align: center;
     margin-bottom: 65px;
+}
+
+.partners_list img {
+    max-height: 30px;
 }
 
 .contact_area {
@@ -2000,7 +2013,7 @@ h3.lien_connexion a {
 
 .txt_connexion {
     margin-top: 60px;
-    font-size: 13px;
+    font-size: 17px;
 }
 
 .title_connexion:hover {
@@ -2056,12 +2069,12 @@ h3.lien_connexion a {
 }
 
 .txt_inscrire_pass {
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 54px;
 }
 
 .txt_inscrire_pass a {
-    font-size: 17px;
+    font-size: 22px;
     display: block;
 }
 

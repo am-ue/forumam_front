@@ -36,7 +36,6 @@
                 </h3>
                 <div class="block_content">
                     <p>
-<!--                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.-->
                     </p>
                 </div>
             </div>
@@ -74,10 +73,10 @@
             <div class="title_area">
                 <h3 class="block_title with_bg darkPurple_clr">
                     <img src="assets/img/space_student_img.png" alt="" class="title_box_img">
-                            <span class="small_title_parte">
+                    <span class="small_title_parte">
                                Espace 
                             </span>
-                            <span>
+                    <span>
                                 Étudiants
                             </span>
                 </h3>
@@ -97,10 +96,10 @@
             <div class="title_area">
                 <h3 class="block_title with_bg orange_clr">
                     <img src="assets/img/space_entreprise_img.png" alt="" class="title_box_img">
-                            <span class="small_title_parte">
+                    <span class="small_title_parte">
                                Espace
                             </span>
-                            <span>
+                    <span>
                                 Entreprises
                             </span>
                 </h3>
@@ -110,7 +109,8 @@
                         euismod orci.
                     --></p>
                     <p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdifLTvEuBX4Uk0eWx_FChgLuA6Hn4IntijnNjqhZmdwwE0jA/viewform" class="btn orange_btn animated_btn"><span>Inscription</span></a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdifLTvEuBX4Uk0eWx_FChgLuA6Hn4IntijnNjqhZmdwwE0jA/viewform"
+                           class="btn orange_btn animated_btn"><span>Inscription</span></a>
                         <a href="#/connexion" class="btn orange_btn animated_btn"><span>Connexion</span></a>
                     </p>
                 </div>
@@ -121,34 +121,21 @@
         <div class="left_parte">
             <div class="title_area">
                 <h3 class="block_title with_bg orange_clr withRelated_icn info_pratic_title">
-                            <span class="small_title_parte">
-                               Informations 
-                            </span>
-                            <span>
-                                pratiques
-                            </span>
+                    <span class="small_title_parte">Informations</span>
+                    <span>pratiques</span>
                 </h3>
-                <div class="block_content mb_60">
-                    <p>
-<!--                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.-->
-                    </p>
-                </div>
-                <div class="application_content clearfix">
-                    <div class="tel_visu">
-                        <img src="assets/img/tel_img.jpg" alt="">
+                <div class="app_txt">
+                    <h5 class="darkPurple_clr">Tu souhaites assister à la finale du Challenge Arts&Métiers ?</h5>
+                    <div class="mb_40 ml" style="width: 90%">
+                        Rendez-vous à 15h à l'espace conférence. <br>
+                        Avec 143 candidat(e)s inscrit(e)s regroupé(e)s en 61
+                        équipes, la sélection sera rude jusqu'à la compétition entre les deux équipes finalistes le jour
+                        J du forum. Industrie, marketing, logistique, innovation, digital, communication, voici quelques
+                        unes des thématiques abordées lors de ce concours étudiant ouvert à toutes les écoles et
+                        universités.
                     </div>
-                    <div class="app_txt">
-                        <h5 class="darkPurple_clr">L’application</h5>
-                        <p class="mb_40">
-                            Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des
-                            entreprises présentes, le planning des conférences, une CVthèque, ect...
-                        </p>
-                        <!--<a href="" class="orange_clr">
-                            Version iOS
-                        </a> <br>
-                        <a href="" class="orange_clr">
-                            Version Android
-                        </a>-->
+                    <div class="align_center">
+                        <img src="assets/img/logo_challenge.png" alt="logo challenge" style="height: 200px;">
                     </div>
                 </div>
             </div>
@@ -160,7 +147,7 @@
                     <label for="" class="darkPurple_clr">
                         Lieu
                     </label>
-                            <span>
+                    <span>
                                 Parc Floral de Paris <br>
                                 Route de la Pyramide, 75012 Paris
                             </span>
@@ -169,7 +156,7 @@
                     <label for="" class="darkPurple_clr">
                         Date
                     </label>
-                            <span>
+                    <span>
                                 le 4 janvier de 9h00 à 18h00
                             </span>
                 </p>
@@ -177,7 +164,7 @@
                     <label for="" class="darkPurple_clr">
                         Accès
                     </label>
-                            <span>
+                    <span>
                                 Métro : Chateau de Vincennes <br>
                                 Bus : 124
                             </span>
@@ -186,7 +173,7 @@
                     <label for="" class="darkPurple_clr">
                         Coût
                     </label>
-                            <span>
+                    <span>
                                 Gratuit
                             </span>
                 </p>
@@ -200,10 +187,9 @@
                     <img src="assets/img/tel_img.jpg" alt="">
                 </div>
                 <div class="app_txt">
-                    <h5 class="darkPurple_clr">L’application</h5>
+                    <h5 class="darkPurple_clr">Le programme</h5>
                     <p class="mb_40">
-                        Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises
-                        présentes, le planning des conférences, une CVthèque, ect...
+                        {{ textes['programme'] }}
                     </p>
                 </div>
                 <p class="app_links align_center">
@@ -217,91 +203,6 @@
             </div>
         </div>
     </section>
-<!--    <section id="who_area" class="sections_area clearfix">
-        <div class="left_parte grey_bg">
-            <div class="title_area">
-                <h3 class="block_title with_bg purple_clr withRelated_icn info_pratic_title">
-                            <span class="small_title_parte">
-                               L'équipe
-                            </span>
-                            <span>
-                                Organisatrice
-                            </span>
-                </h3>
-                <div class="block_content mb_60">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
-                    </p>
-                </div>
-                <div class="application_content clearfix">
-                    <img src="assets/img/contacts.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="right_parte ">
-            <div id="map_plan" class="mb_40"></div>
-            <div class="map_output">
-                <p class="group_info">
-                    <label for="" class="darkPurple_clr">
-                        Lieu
-                    </label>
-                            <span>
-                                Parc Floral de Paris <br>
-                                Route de la Pyramide, 75012 Paris
-                            </span>
-                </p>
-                <p class="group_info">
-                    <label for="" class="darkPurple_clr">
-                        Date
-                    </label>
-                            <span>
-                                30 Mars 2016 de 9h à 18h
-                            </span>
-                </p>
-                <p class="group_info">
-                    <label for="" class="darkPurple_clr">
-                        Accès
-                    </label>
-                            <span>
-                                Métro : Chateau de Vincennes <br>
-                                Bus : 124
-                            </span>
-                </p>
-                <p class="group_info">
-                    <label for="" class="darkPurple_clr">
-                        Coût
-                    </label>
-                            <span>
-                                Gratuit
-                            </span>
-                </p>
-                <p class="align_center">
-                    <a href="" class="btn purple_btn animated_btn"><span>Télécharger le plan du forum</span></a>
-                </p>
-            </div>
-
-            <div class="application_content mobile_application_block clearfix">
-                <div class="tel_visu">
-                    <img src="assets/img/tel_img.jpg" alt="">
-                </div>
-                <div class="app_txt">
-                    <h5 class="darkPurple_clr">L’application</h5>
-                    <p class="mb_40">
-                        Elle vous ouvre l'accès à une myriade de services : les fiches de présentation des entreprises
-                        présentes, le planning des conférences, une CVthèque, ect...
-                    </p>
-                </div>
-                <p class="app_links align_center">
-                    <a href="" class="orange_clr">
-                        Version iOS
-                    </a>
-                    <a href="" class="orange_clr">
-                        Version Android
-                    </a>
-                </p>
-            </div>
-        </div>
-    </section>-->
     <section id="contact_area" class="sections_area clearfix">
         <div class="left_parte">
             <div class="title_area">
@@ -314,32 +215,21 @@
             <div class="mb_60">
                 <ul class="partners_list">
                     <li>
-                        <img src="assets/img/pg_logo.png" alt="">
+                        <img src="assets/img/partenaire1.png" alt="">
                     </li>
                     <li>
-                        <img src="assets/img/zf_logo.png" alt="">
+                        <img src="assets/img/partenaire2.png" alt="">
                     </li>
                     <li>
-                        <img src="assets/img/grand_gala_logo.png" alt="">
+                        <img src="assets/img/partenaire3.png" alt="">
                     </li>
                     <li>
-                        <img src="assets/img/job_teaser_logo.png" alt="">
+                        <img src="assets/img/partenaire5.png" alt="">
                     </li>
                     <li>
-                        <img src="assets/img/leroymerlin_logo.png" alt="">
+                        <img src="assets/img/partenaire4.png" alt="">
                     </li>
-                    <li>
-                        <img src="assets/img/universum_logo.png" alt="">
-                    </li>
-                    <li>
-                        <img src="assets/img/studyrama_logo.png" alt="">
-                    </li>
-                    <li>
-                        <img src="assets/img/csc_logo.png" alt="">
-                    </li>
-                    <li>
-                        <img src="assets/img/iquesta_logo.png" alt="">
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -366,29 +256,36 @@
                 </div>
                 <form class="contact_form" name="contactForm" novalidate>
                     <div class="control_group">
-                        <input type="text" name="name" ng-model="contact.name" class="simple_field darkPurple_clr full_size"
+                        <input type="text" name="name" ng-model="contact.name"
+                               class="simple_field darkPurple_clr full_size"
                                placeholder="Nom*" ng-required="true">
-                        <div ng-if="contactForm.name.$dirty || submitted" ng-messages="contactForm.name.$error" class="alert">
+                        <div ng-if="contactForm.name.$dirty || submitted" ng-messages="contactForm.name.$error"
+                             class="alert">
                             <div ng-message="required">Le champ nom est obligatoire.</div>
                         </div>
                     </div>
                     <div class="control_group">
-                        <input type="email" name="email" ng-model="contact.email" class="simple_field darkPurple_clr full_size"
+                        <input type="email" name="email" ng-model="contact.email"
+                               class="simple_field darkPurple_clr full_size"
                                placeholder="Email*" ng-required="true">
-                        <div ng-if="contactForm.email.$dirty || submitted" ng-messages="contactForm.email.$error" class="alert">
+                        <div ng-if="contactForm.email.$dirty || submitted" ng-messages="contactForm.email.$error"
+                             class="alert">
                             <div ng-message="required">Le champ email est obligatoire.</div>
                             <div ng-message="email">Le champ email doit être une adresse email valide.</div>
                         </div>
                     </div>
                     <div class="control_group last_group">
                         <label for="" class="darkPurple_clr full_size">Message*</label>
-                        <textarea name="message" ng-model="contact.message" class="simple_field darkPurple_clr full_size"
-                                   ng-maxlength="1000" ng-required="true">
+                        <textarea name="message" ng-model="contact.message"
+                                  class="simple_field darkPurple_clr full_size"
+                                  ng-maxlength="1000" ng-required="true">
                         </textarea>
 
-                        <div ng-if="contactForm.message.$dirty || submitted" ng-messages="contactForm.message.$error" class="alert">
+                        <div ng-if="contactForm.message.$dirty || submitted" ng-messages="contactForm.message.$error"
+                             class="alert">
                             <div ng-message="required">Le champ message est obligatoire.</div>
-                            <div ng-message="maxlength">Le texte de message ne peut contenir plus de 1000 caractères.</div>
+                            <div ng-message="maxlength">Le texte de message ne peut contenir plus de 1000 caractères.
+                            </div>
                         </div>
                     </div>
                     <div vc-recaptcha key="'6LfxEioTAAAAAP9N1VWdWfZNntZsN0hN3GeTYzwK'"></div>

@@ -3,7 +3,7 @@
     angular
         .module('infosPratique')
         .controller('infosPratiqueController', [
-            '$rootScope', '$scope', '$q', 'exposantsService',
+            '$rootScope', '$scope', '$q', 'exposantsService', 'infosPratiqueService',
             infosPratiqueController
         ]);
 

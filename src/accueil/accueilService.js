@@ -8,7 +8,7 @@
     function accueilService($q, restService) {
 
         return {
-            loadAll: function () {
+            loadPosts: function () {
                 return restService.call('GET', 'posts', {});
             },
             sendEmail: function(data, success, error)  {

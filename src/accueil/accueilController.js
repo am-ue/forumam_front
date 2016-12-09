@@ -29,7 +29,7 @@
             $('html,body').stop().animate({scrollTop: targetLinkOffset}, 1200);
         }
         if (!$rootScope.actualites || $rootScope.actualites.length < 0) {
-            accueilService.loadAll()
+            accueilService.loadPosts()
                 .success(function (data) {
                     $rootScope.getActualitesPromise.resolve();
                     $rootScope.actualites = data;
